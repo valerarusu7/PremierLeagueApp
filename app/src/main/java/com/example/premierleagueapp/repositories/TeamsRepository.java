@@ -59,7 +59,9 @@ public class TeamsRepository {
 
             }
         });
+    }
 
-
+    public Team getTeam(int position) {
+        return teamsDataSet.get(position);
     }
 }

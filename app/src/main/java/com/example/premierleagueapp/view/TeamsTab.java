@@ -1,5 +1,6 @@
 package com.example.premierleagueapp.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ import java.util.List;
 public class TeamsTab extends Fragment implements RecyclerViewAdapterTeams.OnListItemClickListener {
     private RecyclerViewAdapterTeams adapter;
     private TeamTabViewModel teamTabViewModel;
+    static final String TEAM = "Team";
 
     public TeamsTab() {
         // Required empty public constructor
@@ -35,11 +37,6 @@ public class TeamsTab extends Fragment implements RecyclerViewAdapterTeams.OnLis
         setViewModel();
 
         return inflater.inflate(R.layout.teams_fragment, container, false);
-    }
-
-    @Override
-    public void onListItemClick(int clickedItemIndex) {
-
     }
 
     @Override
@@ -63,4 +60,13 @@ public class TeamsTab extends Fragment implements RecyclerViewAdapterTeams.OnLis
             }
         });
     }
+
+    @Override
+    public void onListItemClick(int clickedItemIndex) {
+        Intent intent = new Intent(getActivity(), TeamActivity.class);
+        intent.putExtra(TEAM, clickedItemIndex);
+        startActivity(intent);
+
+    }
+
 }
