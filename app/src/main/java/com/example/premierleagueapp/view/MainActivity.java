@@ -1,7 +1,10 @@
-package com.example.premierleagueapp;
+package com.example.premierleagueapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.premierleagueapp.adapter.PageAdapter;
+import com.example.premierleagueapp.R;
 import com.google.android.material.tabs.TabLayout;
 
 import android.os.Bundle;

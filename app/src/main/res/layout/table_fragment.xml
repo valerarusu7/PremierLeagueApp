@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<TableLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TableRow
+        >
+        <TextView
+            android:text="@string/position"
+            android:layout_marginRight="20dp" />
+        <TextView
+            android:text="@string/team"
+            android:layout_marginRight="90dp" />
+        <TextView
+            android:text="@string/points"
+            android:layout_marginRight="20dp" />
+
+        <TextView
+            android:text="@string/played"
+            android:layout_marginRight="20dp" />
+        <TextView
+            android:text="@string/won"
+            android:layout_marginRight="20dp" />
+        <TextView
+            android:text="@string/lost"
+            android:layout_marginRight="20dp" />
+    </TableRow>
+</TableLayout>

@@ -1,9 +1,13 @@
-package com.example.premierleagueapp;
+package com.example.premierleagueapp.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.example.premierleagueapp.view.FixturesTab;
+import com.example.premierleagueapp.view.TableTab;
+import com.example.premierleagueapp.view.TeamsTab;
 
 public class PageAdapter extends FragmentPagerAdapter {
 

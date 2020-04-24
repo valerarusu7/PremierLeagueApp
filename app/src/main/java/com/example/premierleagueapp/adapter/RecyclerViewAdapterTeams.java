@@ -1,5 +1,6 @@
-package com.example.premierleagueapp;
+package com.example.premierleagueapp.adapter;
 
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.premierleagueapp.R;
+import com.example.premierleagueapp.model.Team;
+
+import java.net.URL;
 import java.util.ArrayList;
+
+import retrofit2.http.Url;
 
 public class RecyclerViewAdapterTeams extends RecyclerView.Adapter<RecyclerViewAdapterTeams.ViewHolder>{
 
@@ -22,7 +29,6 @@ public class RecyclerViewAdapterTeams extends RecyclerView.Adapter<RecyclerViewA
     public RecyclerViewAdapterTeams(ArrayList<Team> teamsNames, OnListItemClickListener listener) {
         this.teamsNames = teamsNames;
         mOnListItemClickListener = listener;
-
     }
 
     @NonNull
@@ -35,10 +41,8 @@ public class RecyclerViewAdapterTeams extends RecyclerView.Adapter<RecyclerViewA
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
-        holder.teamName.setText(teamsNames.get(position).getTeamName());
 
-        //TODO:Setting image from local storage
-
+        holder.teamName.setText(teamsNames.get(position).getShortName());
     }
 
     @Override
@@ -57,6 +61,7 @@ public class RecyclerViewAdapterTeams extends RecyclerView.Adapter<RecyclerViewA
         public ViewHolder(@NonNull View itemView, OnListItemClickListener listener) {
             super(itemView);
             teamName = itemView.findViewById(R.id.teamName);
+            imageView = itemView.findViewById(R.id.imageView);
             parentLayout = itemView.findViewById(R.id.parent_layout);
             onListItemClickListener = listener;
             itemView.setOnClickListener(this);

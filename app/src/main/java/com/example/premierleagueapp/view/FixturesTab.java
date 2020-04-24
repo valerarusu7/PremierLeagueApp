@@ -1,4 +1,4 @@
-package com.example.premierleagueapp;
+package com.example.premierleagueapp.view;
 
 import androidx.fragment.app.Fragment;
 
