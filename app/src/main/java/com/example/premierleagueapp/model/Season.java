@@ -1,11 +1,11 @@
 package com.example.premierleagueapp.model;
 
 public class Season {
-    public int id;
-    public String startDate;
-    public String endDate;
-    public String currentMatchday;
-    public String winner;
+    private int id;
+    private String startDate;
+    private String endDate;
+    private String currentMatchday;
+    private String winner;
 
     public Season(int id, String startDate, String endDate, String currentMatchday, String winner) {
         this.id = id;

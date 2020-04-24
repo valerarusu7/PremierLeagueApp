@@ -3,11 +3,11 @@ package com.example.premierleagueapp.model;
 import java.util.ArrayList;
 
 public class Teams {
-    public int count;
-    public Filters filters;
-    public Competition competition;
-    public Season season;
-    public ArrayList<Team> teams;
+    private int count;
+    private Filters filters;
+    private Competition competition;
+    private Season season;
+    private ArrayList<Team> teams;
 
     public Teams(int count, Filters filters, Competition competition, Season season, ArrayList<Team> teams) {
         this.count = count;

@@ -1,12 +1,12 @@
 package com.example.premierleagueapp.model;
 
 public class Competition {
-    public int id;
-    public Area area;
-    public String name;
-    public String code;
-    public String plan;
-    public String lastUpdated;
+    private int id;
+    private Area area;
+    private String name;
+    private String code;
+    private String plan;
+    private String lastUpdated;
 
     public Competition(int id, Area area, String name, String code, String plan, String lastUpdated) {
         this.id = id;
