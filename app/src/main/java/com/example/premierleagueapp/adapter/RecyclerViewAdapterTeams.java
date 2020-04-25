@@ -1,6 +1,5 @@
 package com.example.premierleagueapp.adapter;
 
-import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.premierleagueapp.R;
 import com.example.premierleagueapp.model.Team;
 
-import java.net.URL;
 import java.util.ArrayList;
-
-import retrofit2.http.Url;
 
 public class RecyclerViewAdapterTeams extends RecyclerView.Adapter<RecyclerViewAdapterTeams.ViewHolder>{
 
-    private static final String TAG = "RecyclerViewAdapter";
+    private static final String TAG = "RecyclerViewAdapterTeams";
     private ArrayList<Team> teamsNames;
     private OnListItemClickListener mOnListItemClickListener;
 
