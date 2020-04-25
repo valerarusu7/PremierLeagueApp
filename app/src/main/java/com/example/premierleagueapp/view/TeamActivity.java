@@ -3,7 +3,9 @@ package com.example.premierleagueapp.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.premierleagueapp.R;
@@ -26,6 +28,7 @@ public class TeamActivity extends AppCompatActivity {
     private TextView clubColors;
     private TextView venue;
     private TextView lastUpdated;
+    private ImageView crestUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +69,7 @@ public class TeamActivity extends AppCompatActivity {
         clubColors = findViewById(R.id.clubColors);
         venue = findViewById(R.id.venue);
         lastUpdated = findViewById(R.id.lastUpdated);
+        crestUrl = findViewById(R.id.crestUrl);
     }
 
     public void setTextFields() {
@@ -81,5 +85,7 @@ public class TeamActivity extends AppCompatActivity {
         clubColors.setText(teamActivityViewModel.getClubColors());
         venue.setText(teamActivityViewModel.getVenue());
         lastUpdated.setText(teamActivityViewModel.getLastUpdated());
+        crestUrl.setImageURI(Uri.parse(teamActivityViewModel.getCrestUrl()));
+        System.out.println(teamActivityViewModel.getCrestUrl());
     }
 }

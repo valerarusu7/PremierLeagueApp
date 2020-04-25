@@ -1,12 +1,18 @@
 package com.example.premierleagueapp.repositories;
 
+import android.annotation.SuppressLint;
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.premierleagueapp.model.Team;
 import com.example.premierleagueapp.model.Teams;
 import com.example.premierleagueapp.requests.TeamsEndpoints;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 import retrofit2.Call;
 import retrofit2.Callback;

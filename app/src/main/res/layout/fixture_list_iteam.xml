@@ -24,15 +24,22 @@
      android:layout_width="match_parent"
      android:layout_height="match_parent"
      android:layout_weight="5"
-     android:orientation="horizontal">
+     android:orientation="horizontal"
+     android:gravity="center">
 
      <TextView
          android:id="@+id/homeTeam"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:text="Man Utd"
-         android:layout_weight="3"
+         android:textSize="11dp"
+         android:layout_weight="4"
          android:gravity="center"/>
+
+     <ImageView
+         android:layout_width="20dp"
+         android:layout_height="20dp"
+         android:id="@+id/homeImage" />
 
      <TextView
          android:id="@+id/scoreHome"
@@ -59,18 +66,19 @@
          android:layout_weight="5"
          android:gravity="center"/>
 
+     <ImageView
+         android:layout_width="20dp"
+         android:layout_height="20dp"
+         android:id="@+id/awayImage" />
+
      <TextView
          android:id="@+id/awayTeam"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:layout_weight="3"
+         android:layout_weight="4"
          android:text="Liverpool"
+         android:textSize="11dp"
          android:gravity="center"/>
  </LinearLayout>
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"/>
     </LinearLayout>
 </RelativeLayout>

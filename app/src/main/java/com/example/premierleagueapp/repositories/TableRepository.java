@@ -57,9 +57,6 @@ public class TableRepository {
             @Override
             public void onResponse(Call<CompetitionStandings> call, Response<CompetitionStandings> response) {
                 CompetitionStandings apiStandings = response.body();
-                Log.w("2.0 getFeed > Full json res wrapped in pretty printed gson => ",new GsonBuilder().setPrettyPrinting().create().toJson(response));
-                System.out.println(Collections.singletonList(response.body()));
-                System.out.println(Arrays.asList(apiStandings));
                 for(int i = 0; i < apiStandings.getStandings().size(); i++) {
                     standingsDataSet.addAll(i, apiStandings.getStandings().get(i).getTable());
                 }

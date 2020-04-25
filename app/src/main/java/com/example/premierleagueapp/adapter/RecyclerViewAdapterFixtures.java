@@ -3,6 +3,7 @@ package com.example.premierleagueapp.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -32,14 +33,97 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final RecyclerViewAdapterFixtures.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
         holder.matchday.setText("Matchday " + match.get(position).getMatchday());
         holder.homeTeam.setText(match.get(position).getHomeTeam().getName());
         holder.scoreHome.setText(String.valueOf(match.get(position).getScore().getFullTime().getHomeTeam()));
         holder.scoreAway.setText(String.valueOf(match.get(position).getScore().getFullTime().getAwayTeam()));
         holder.awayTeam.setText(match.get(position).getAwayTeam().getName());
-        holder.date.setText(match.get(position).getUtcDate());
+
+        if(match.get(position).getHomeTeam().getName().equals("Arsenal FC")) {
+            holder.homeImage.setImageResource(R.drawable.arsenal_fc);
+        } else if(match.get(position).getHomeTeam().getName().equals("Aston Villa FC")) {
+            holder.homeImage.setImageResource(R.drawable.aston_villa);
+        } else if(match.get(position).getHomeTeam().getName().equals("Chelsea FC")) {
+            holder.homeImage.setImageResource(R.drawable.chelsea);
+        } else if(match.get(position).getHomeTeam().getName().equals("Everton FC")) {
+            holder.homeImage.setImageResource(R.drawable.everton);
+        } else if(match.get(position).getHomeTeam().getName().equals("Liverpool FC")) {
+            holder.homeImage.setImageResource(R.drawable.liverpool);
+        } else if(match.get(position).getHomeTeam().getName().equals("Manchester City FC")) {
+            holder.homeImage.setImageResource(R.drawable.manchester_city);
+        } else if(match.get(position).getHomeTeam().getName().equals("Manchester United FC")) {
+            holder.homeImage.setImageResource(R.drawable.manchester_united);
+        } else if(match.get(position).getHomeTeam().getName().equals("Newcastle United FC")) {
+            holder.homeImage.setImageResource(R.drawable.newcastle_united);
+        } else if(match.get(position).getHomeTeam().getName().equals("Norwich City FC")) {
+            holder.homeImage.setImageResource(R.drawable.norwich_city);
+        } else if(match.get(position).getHomeTeam().getName().equals("Tottenham Hotspur FC")) {
+            holder.homeImage.setImageResource(R.drawable.tottenham_hotspur);
+        } else if(match.get(position).getHomeTeam().getName().equals("Wolverhampton Wanderers FC")) {
+            holder.homeImage.setImageResource(R.drawable.wolves);
+        } else if(match.get(position).getHomeTeam().getName().equals("Burnley FC")) {
+            holder.homeImage.setImageResource(R.drawable.burnely);
+        } else if(match.get(position).getHomeTeam().getName().equals("Leicester City FC")) {
+            holder.homeImage.setImageResource(R.drawable.leicester_city);
+        } else if(match.get(position).getHomeTeam().getName().equals("Southampton FC")) {
+            holder.homeImage.setImageResource(R.drawable.southampton);
+        } else if(match.get(position).getHomeTeam().getName().equals("Watford FC")) {
+            holder.homeImage.setImageResource(R.drawable.watford);
+        } else if(match.get(position).getHomeTeam().getName().equals("Crystal Palace FC")) {
+            holder.homeImage.setImageResource(R.drawable.crystal_palace);
+        } else if(match.get(position).getHomeTeam().getName().equals("Sheffield United FC")) {
+            holder.homeImage.setImageResource(R.drawable.sheffield_united);
+        } else if(match.get(position).getHomeTeam().getName().equals("Brighton & Hove Albion FC")) {
+            holder.homeImage.setImageResource(R.drawable.brighton);
+        } else if(match.get(position).getHomeTeam().getName().equals("West Ham United FC")) {
+            holder.homeImage.setImageResource(R.drawable.west_ham);
+        } else if(match.get(position).getHomeTeam().getName().equals("AFC Bournemouth")) {
+            holder.homeImage.setImageResource(R.drawable.bournemonth);
+        }
+
+        if (match.get(position).getAwayTeam().getName().equals("Arsenal FC")) {
+            holder.awayImage.setImageResource(R.drawable.arsenal_fc);
+        } else if(match.get(position).getAwayTeam().getName().equals("Aston Villa FC")) {
+            holder.awayImage.setImageResource(R.drawable.aston_villa);
+        } else if(match.get(position).getAwayTeam().getName().equals("Chelsea FC")) {
+            holder.awayImage.setImageResource(R.drawable.chelsea);
+        } else if(match.get(position).getAwayTeam().getName().equals("Everton FC")) {
+            holder.awayImage.setImageResource(R.drawable.everton);
+        } else if(match.get(position).getAwayTeam().getName().equals("Liverpool FC")) {
+            holder.awayImage.setImageResource(R.drawable.liverpool);
+        } else if(match.get(position).getAwayTeam().getName().equals("Manchester City FC")) {
+            holder.awayImage.setImageResource(R.drawable.manchester_city);
+        } else if(match.get(position).getAwayTeam().getName().equals("Manchester United FC")) {
+            holder.awayImage.setImageResource(R.drawable.manchester_united);
+        } else if(match.get(position).getAwayTeam().getName().equals("Newcastle United FC")) {
+            holder.awayImage.setImageResource(R.drawable.newcastle_united);
+        } else if(match.get(position).getAwayTeam().getName().equals("Norwich City FC")) {
+            holder.awayImage.setImageResource(R.drawable.norwich_city);
+        } else if(match.get(position).getAwayTeam().getName().equals("Tottenham Hotspur FC")) {
+            holder.awayImage.setImageResource(R.drawable.tottenham_hotspur);
+        } else if(match.get(position).getAwayTeam().getName().equals("Wolverhampton Wanderers FC")) {
+            holder.awayImage.setImageResource(R.drawable.wolves);
+        } else if(match.get(position).getAwayTeam().getName().equals("Burnley FC")) {
+            holder.awayImage.setImageResource(R.drawable.burnely);
+        } else if(match.get(position).getAwayTeam().getName().equals("Leicester City FC")) {
+            holder.awayImage.setImageResource(R.drawable.leicester_city);
+        } else if(match.get(position).getAwayTeam().getName().equals("Southampton FC")) {
+            holder.awayImage.setImageResource(R.drawable.southampton);
+        } else if(match.get(position).getAwayTeam().getName().equals("Watford FC")) {
+            holder.awayImage.setImageResource(R.drawable.watford);
+        } else if(match.get(position).getAwayTeam().getName().equals("Crystal Palace FC")) {
+            holder.awayImage.setImageResource(R.drawable.crystal_palace);
+        } else if(match.get(position).getAwayTeam().getName().equals("Sheffield United FC")) {
+            holder.awayImage.setImageResource(R.drawable.sheffield_united);
+        } else if(match.get(position).getAwayTeam().getName().equals("Brighton & Hove Albion FC")) {
+            holder.awayImage.setImageResource(R.drawable.brighton);
+        } else if(match.get(position).getAwayTeam().getName().equals("West Ham United FC")) {
+            holder.awayImage.setImageResource(R.drawable.west_ham);
+        } else if(match.get(position).getAwayTeam().getName().equals("AFC Bournemouth")) {
+            holder.awayImage.setImageResource(R.drawable.bournemonth);
+        }
 
     }
 
@@ -55,7 +139,8 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
         TextView scoreHome;
         TextView scoreAway;
         TextView awayTeam;
-        TextView date;
+        ImageView homeImage;
+        ImageView awayImage;
 
         RelativeLayout parentLayout;
         OnListItemClickListener onListItemClickListener;
@@ -68,7 +153,8 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
             scoreHome = itemView.findViewById(R.id.scoreHome);
             scoreAway = itemView.findViewById(R.id.scoreAway);
             awayTeam = itemView.findViewById(R.id.awayTeam);
-            date = itemView.findViewById(R.id.date);
+            homeImage = itemView.findViewById(R.id.homeImage);
+            awayImage = itemView.findViewById(R.id.awayImage);
             parentLayout = itemView.findViewById(R.id.parent_layout);
 
             onListItemClickListener = listener;
