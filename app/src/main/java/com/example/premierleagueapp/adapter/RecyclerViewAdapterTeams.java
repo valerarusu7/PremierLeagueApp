@@ -42,7 +42,8 @@ public class RecyclerViewAdapterTeams extends RecyclerView.Adapter<RecyclerViewA
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
 
-        holder.teamName.setText(teamsNames.get(position).getShortName());
+        holder.name.setText(teamsNames.get(position).getShortName());
+
     }
 
     @Override
@@ -53,14 +54,15 @@ public class RecyclerViewAdapterTeams extends RecyclerView.Adapter<RecyclerViewA
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView imageView;
-        TextView teamName;
+        TextView name;
 
         RelativeLayout parentLayout;
         OnListItemClickListener onListItemClickListener;
 
         public ViewHolder(@NonNull View itemView, OnListItemClickListener listener) {
             super(itemView);
-            teamName = itemView.findViewById(R.id.teamName);
+            name = itemView.findViewById(R.id.teamName);
+
             imageView = itemView.findViewById(R.id.imageView);
             parentLayout = itemView.findViewById(R.id.parent_layout);
             onListItemClickListener = listener;
