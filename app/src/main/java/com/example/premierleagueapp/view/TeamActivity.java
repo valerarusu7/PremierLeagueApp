@@ -32,6 +32,8 @@ public class TeamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.team_activity);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Bundle bundle = getIntent().getExtras();
         if(bundle != null && bundle.containsKey(TeamsTab.TEAM)) {
             position = bundle.getInt(TeamsTab.TEAM);
