@@ -46,8 +46,6 @@ public class TeamActivity extends AppCompatActivity {
         setTextFields();
     }
 
-
-
     private void setViewModel() {
         teamActivityViewModel = new ViewModelProvider(this).get(TeamActivityViewModel.class);
         teamActivityViewModel.init(position);
