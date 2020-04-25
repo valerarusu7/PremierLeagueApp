@@ -1,28 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
 
-    <TableRow
-        >
-        <TextView
-            android:text="@string/position"
-            android:layout_marginRight="20dp" />
-        <TextView
-            android:text="@string/team"
-            android:layout_marginRight="90dp" />
-        <TextView
-            android:text="@string/points"
-            android:layout_marginRight="20dp" />
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
 
-        <TextView
-            android:text="@string/played"
-            android:layout_marginRight="20dp" />
-        <TextView
-            android:text="@string/won"
-            android:layout_marginRight="20dp" />
-        <TextView
-            android:text="@string/lost"
-            android:layout_marginRight="20dp" />
-    </TableRow>
-</TableLayout>
+     <TextView
+         android:id="@+id/position"
+         android:layout_height="match_parent"
+         android:layout_width="20dp"
+         android:gravity="center"
+         android:text="P" />
+
+     <TextView
+         android:id="@+id/club"
+         android:layout_height="match_parent"
+         android:layout_width="200dp"
+         android:text="Club"
+         android:gravity="left"
+         android:textSize="13dp"
+         />
+     <TextView
+         android:id="@+id/playedGames"
+         android:layout_height="match_parent"
+         android:layout_width="30dp"
+         android:gravity="center"
+         android:text="PL" />
+     <TextView
+         android:id="@+id/wonGames"
+         android:layout_height="match_parent"
+         android:layout_width="30dp"
+         android:gravity="center"
+         android:text="W"
+         />
+     <TextView
+         android:id="@+id/drawGames"
+         android:layout_height="match_parent"
+         android:layout_width="30dp"
+         android:gravity="center"
+         android:text="D"
+         />
+     <TextView
+         android:id="@+id/lostGames"
+         android:layout_height="match_parent"
+         android:layout_width="30dp"
+         android:gravity="center"
+         android:text="L"
+         />
+     <TextView
+         android:id="@+id/goalDifference"
+         android:layout_height="match_parent"
+         android:layout_width="30dp"
+         android:gravity="center"
+         android:text="GD"
+         />
+     <TextView
+         android:id="@+id/points"
+         android:layout_height="match_parent"
+         android:layout_width="30dp"
+         android:gravity="center"
+         android:text="PTS"
+         />
+
+
+ </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_table"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

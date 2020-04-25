@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.premierleagueapp.model.Match;
 import com.example.premierleagueapp.repositories.FixturesRepository;
-import com.example.premierleagueapp.requests.FixturesEndpoints;
 
 import java.util.ArrayList;
 

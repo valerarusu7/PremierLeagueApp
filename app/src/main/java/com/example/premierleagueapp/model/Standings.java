@@ -1,12 +1,14 @@
 package com.example.premierleagueapp.model;
 
+import java.util.ArrayList;
+
 public class Standings {
     private String stage;
     private String type;
     private String group;
-    private Table table;
+    private ArrayList<Table> table;
 
-    public Standings(String stage, String type, String group, Table table) {
+    public Standings(String stage, String type, String group, ArrayList<Table> table) {
         this.stage = stage;
         this.type = type;
         this.group = group;
@@ -25,7 +27,7 @@ public class Standings {
         return group;
     }
 
-    public Table getTable() {
+    public ArrayList<Table> getTable() {
         return table;
     }
 }

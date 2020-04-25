@@ -16,7 +16,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TeamsRepository {
     private static TeamsRepository instance;
-    private Teams teams;
     private ArrayList<Team> teamsDataSet = new ArrayList<>();
     private static final String TOKEN = "f3a2512d06ae44e68a95be8689245c1f";
 
@@ -56,6 +55,7 @@ public class TeamsRepository {
 
             @Override
             public void onFailure(Call<Teams> call, Throwable t) {
+                System.out.println("Failed to load the data from api : TEAMS");
 
             }
         });

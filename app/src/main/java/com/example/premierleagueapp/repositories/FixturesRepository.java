@@ -55,6 +55,7 @@ public class FixturesRepository {
 
             @Override
             public void onFailure(Call<Matches> call, Throwable t) {
+                System.out.println("Failed to load the data from api : FIXTURES");
 
             }
         });

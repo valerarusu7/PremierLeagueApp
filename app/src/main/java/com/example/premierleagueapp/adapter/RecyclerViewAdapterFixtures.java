@@ -1,11 +1,8 @@
 package com.example.premierleagueapp.adapter;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -14,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.premierleagueapp.R;
 import com.example.premierleagueapp.model.Match;
-import com.example.premierleagueapp.model.Team;
 
 import java.util.ArrayList;
 
@@ -35,7 +31,6 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
         return new ViewHolder(view, mOnListItemClickListener);
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull final RecyclerViewAdapterFixtures.ViewHolder holder, final int position) {
 
@@ -75,6 +70,7 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
             awayTeam = itemView.findViewById(R.id.awayTeam);
             date = itemView.findViewById(R.id.date);
             parentLayout = itemView.findViewById(R.id.parent_layout);
+
             onListItemClickListener = listener;
             itemView.setOnClickListener(this);
         }

@@ -1,12 +1,14 @@
 package com.example.premierleagueapp.model;
 
+import java.util.ArrayList;
+
 public class CompetitionStandings {
     private Filters filters;
     private Competition competition;
     private Season season;
-    private Standings standings;
+    private ArrayList<Standings> standings;
 
-    public CompetitionStandings(Filters filters, Competition competition, Season season, Standings standings) {
+    public CompetitionStandings(Filters filters, Competition competition, Season season, ArrayList<Standings> standings) {
         this.filters = filters;
         this.competition = competition;
         this.season = season;
@@ -25,7 +27,7 @@ public class CompetitionStandings {
         return season;
     }
 
-    public Standings getStandings() {
+    public ArrayList<Standings> getStandings() {
         return standings;
     }
 }

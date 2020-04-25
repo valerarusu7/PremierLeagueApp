@@ -16,9 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.premierleagueapp.R;
 import com.example.premierleagueapp.adapter.RecyclerViewAdapterFixtures;
 import com.example.premierleagueapp.model.Match;
-import com.example.premierleagueapp.model.Team;
 import com.example.premierleagueapp.viewmodel.FixturesTabViewModel;
-import com.example.premierleagueapp.viewmodel.TeamTabViewModel;
 
 import java.util.List;
 
