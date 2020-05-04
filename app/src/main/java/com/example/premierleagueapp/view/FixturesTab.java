@@ -15,14 +15,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.premierleagueapp.R;
 import com.example.premierleagueapp.adapter.RecyclerViewAdapterFixtures;
+import com.example.premierleagueapp.adapter.RecyclerViewAdapterMatchdays;
+import com.example.premierleagueapp.model.FixturesByMatchday;
 import com.example.premierleagueapp.model.Match;
 import com.example.premierleagueapp.viewmodel.FixturesTabViewModel;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class FixturesTab extends Fragment implements RecyclerViewAdapterFixtures.OnListItemClickListener{
-    private RecyclerViewAdapterFixtures adapter;
+public class FixturesTab extends Fragment {
+    private RecyclerViewAdapterMatchdays adapter;
     private FixturesTabViewModel fixturesTabViewModel;
+    private ArrayList<Match> matchesByMatchday;
 
     public FixturesTab() {
         // Required empty public constructor
@@ -39,7 +44,7 @@ public class FixturesTab extends Fragment implements RecyclerViewAdapterFixtures
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view_matchday);
-        adapter = new RecyclerViewAdapterFixtures(fixturesTabViewModel.getMatches().getValue(), this);
+        adapter = new RecyclerViewAdapterMatchdays(fixturesTabViewModel.getMachdays().getValue(), fixturesTabViewModel.getMatches().getValue(), getActivity());
         recyclerView.setAdapter(adapter);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(llm);
@@ -49,18 +54,12 @@ public class FixturesTab extends Fragment implements RecyclerViewAdapterFixtures
         fixturesTabViewModel = new ViewModelProvider(this).get(FixturesTabViewModel.class);
         fixturesTabViewModel.init();
 
-        fixturesTabViewModel.getMatches().observe(getViewLifecycleOwner(), new Observer<List<Match>>() {
+        fixturesTabViewModel.getMatches().observe(getViewLifecycleOwner(), new Observer<ArrayList<Match>>() {
 
             @Override
-            public void onChanged(List<Match> matches) {
+            public void onChanged(ArrayList<Match> matches) {
                 adapter.notifyDataSetChanged();
             }
         });
-    }
-
-
-    @Override
-    public void onListItemClick(int clickedItemIndex) {
-
     }
 }

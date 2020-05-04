@@ -11,31 +11,34 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.premierleagueapp.R;
+import com.example.premierleagueapp.model.AwayTeam;
+import com.example.premierleagueapp.model.FullTime;
+import com.example.premierleagueapp.model.HomeTeam;
 import com.example.premierleagueapp.model.Match;
+import com.example.premierleagueapp.model.Score;
 
 import java.util.ArrayList;
 
 public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerViewAdapterFixtures.ViewHolder>{
     private static final String TAG = "RecyclerViewAdapterFixtures";
     private ArrayList<Match> match;
-    private OnListItemClickListener mOnListItemClickListener;
+    private ArrayList<Integer> matchdays;
 
-    public RecyclerViewAdapterFixtures(ArrayList<Match> match, OnListItemClickListener listener) {
+    public RecyclerViewAdapterFixtures(ArrayList<Match> match, ArrayList<Integer> matchdays) {
         this.match = match;
-        mOnListItemClickListener = listener;
+        this.matchdays = matchdays;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fixture_list_iteam, parent, false);
-        return new ViewHolder(view, mOnListItemClickListener);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
-        holder.matchday.setText("Matchday " + match.get(position).getMatchday());
         holder.homeTeam.setText(match.get(position).getHomeTeam().getName());
         holder.scoreHome.setText(String.valueOf(match.get(position).getScore().getFullTime().getHomeTeam()));
         holder.scoreAway.setText(String.valueOf(match.get(position).getScore().getFullTime().getAwayTeam()));
@@ -124,7 +127,6 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
         } else if(match.get(position).getAwayTeam().getName().equals("AFC Bournemouth")) {
             holder.awayImage.setImageResource(R.drawable.bournemonth);
         }
-
     }
 
     @Override
@@ -132,9 +134,8 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
         return match.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView matchday;
         TextView homeTeam;
         TextView scoreHome;
         TextView scoreAway;
@@ -143,12 +144,10 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
         ImageView awayImage;
 
         RelativeLayout parentLayout;
-        OnListItemClickListener onListItemClickListener;
 
-        public ViewHolder(@NonNull View itemView, OnListItemClickListener listener) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            matchday = itemView.findViewById(R.id.matchday);
             homeTeam = itemView.findViewById(R.id.homeTeam);
             scoreHome = itemView.findViewById(R.id.scoreHome);
             scoreAway = itemView.findViewById(R.id.scoreAway);
@@ -157,18 +156,8 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
             awayImage = itemView.findViewById(R.id.awayImage);
             parentLayout = itemView.findViewById(R.id.parent_layout);
 
-            onListItemClickListener = listener;
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            onListItemClickListener.onListItemClick(getAdapterPosition());
         }
     }
 
-    public interface OnListItemClickListener {
-        void onListItemClick(int clickedItemIndex);
-    }
 
 }

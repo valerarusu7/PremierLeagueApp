@@ -1,5 +1,6 @@
 package com.example.premierleagueapp.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import com.example.premierleagueapp.adapter.RecyclerViewAdapterTeams;
 import com.example.premierleagueapp.model.Team;
 import com.example.premierleagueapp.viewmodel.TeamTabViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TeamsTab extends Fragment implements RecyclerViewAdapterTeams.OnListItemClickListener {
@@ -42,19 +44,26 @@ public class TeamsTab extends Fragment implements RecyclerViewAdapterTeams.OnLis
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view_teams);
         adapter = new RecyclerViewAdapterTeams(teamTabViewModel.getTeams().getValue(), this);
-        recyclerView.setAdapter(adapter);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(llm);
+        recyclerView.setAdapter(adapter);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
+
 
     private void setViewModel() {
         teamTabViewModel = new ViewModelProvider(this).get(TeamTabViewModel.class);
         teamTabViewModel.init();
 
-        teamTabViewModel.getTeams().observe(getViewLifecycleOwner(), new Observer<List<Team>>() {
+        teamTabViewModel.getTeams().observe(getViewLifecycleOwner(), new Observer<ArrayList<Team>>() {
 
             @Override
-            public void onChanged(List<Team> artworks) {
+            public void onChanged(ArrayList<Team> artworks) {
                 adapter.notifyDataSetChanged();
             }
         });
