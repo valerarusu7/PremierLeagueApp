@@ -1,6 +1,5 @@
 package com.example.premierleagueapp.requests.clients;
 
-import android.annotation.SuppressLint;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
@@ -26,7 +25,6 @@ public class TableAPIClient {
         this.application = application;
     }
 
-
     public LiveData<ArrayList<Table>> getTableLiveData() {
         TableEndpoints endpoints = ServiceGenerator.getTableEndpoints();
 
@@ -35,10 +33,10 @@ public class TableAPIClient {
             @Override
             public void onResponse(Call<CompetitionStandings> call, Response<CompetitionStandings> response) {
                 CompetitionStandings apiStandings = response.body();
-                for (int i = 0; i < apiStandings.getStandings().size(); i++) {
-                    tableArrayList.addAll(i, apiStandings.getStandings().get(i).getTable());
+                assert apiStandings != null;
+                if(response.isSuccessful()) {
+                    standingsLiveData.setValue(apiStandings.getStandings().get(0).getTable());
                 }
-                standingsLiveData.setValue(tableArrayList);
             }
 
             @Override
@@ -50,4 +48,5 @@ public class TableAPIClient {
         });
         return standingsLiveData;
     }
+
 }

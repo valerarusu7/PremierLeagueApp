@@ -3,6 +3,7 @@ package com.example.premierleagueapp.viewmodel;
 import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.premierleagueapp.model.Team;
@@ -13,10 +14,10 @@ public class TeamActivityViewModel extends AndroidViewModel {
 
     public TeamActivityViewModel(Application application) {
         super(application);
-        this.teamDetailsRepository = TeamDetailsRepository.getInstance();
+        this.teamDetailsRepository = TeamDetailsRepository.getInstance(application);
     }
 
-    public MutableLiveData<Team> getTeam(int id) {
+    public LiveData<Team> getTeam(int id) {
         return teamDetailsRepository.getTeamByIdData(id);
     }
 }

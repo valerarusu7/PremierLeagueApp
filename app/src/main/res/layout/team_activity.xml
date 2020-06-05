@@ -1,115 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/teamActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.TeamActivity"
     android:background="@drawable/gradient"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".view.TeamActivity">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="4">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <FrameLayout
-            android:layout_width="120dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop" />
+            <FrameLayout
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop" />
+            </FrameLayout>
+
         </FrameLayout>
 
-    </FrameLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_weight="5">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/name"
-        android:text="lalala"
+            <TextView
+                android:id="@+id/teamName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/shortName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tla"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/website"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/founded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/clubColors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/venue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:id="@+id/crestUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="30dp"
+        android:layout_margin="1dp"
+        android:background="@color/colorAccent"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/shortName"
-        android:text="lalala"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/player_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:text="Nr."
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/tla"
-        android:text="lalala"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/player_position"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:text="Position"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/address"
-        android:text="lalala"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/player_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="Name"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/phone"
-        android:text="lalala"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/player_nationality"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:text="Nationality"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/website"
-        android:text="lalala"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/email"
-        android:text="lalala"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/founded"
-        android:text="lalala"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/clubColors"
-        android:text="lalala"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/venue"
-        android:text="lalala"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <ImageView
-        android:id="@+id/crestUrl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-</LinearLayout>
-</LinearLayout>
-
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/squad"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/player_item"/>
+        tools:listitem="@layout/player_item" />
 
 
 </LinearLayout>

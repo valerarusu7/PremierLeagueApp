@@ -1,68 +1,31 @@
 package com.example.premierleagueapp.repositories;
 
-import androidx.lifecycle.MutableLiveData;
+import android.app.Application;
 
-import com.example.premierleagueapp.model.Player;
+import androidx.lifecycle.LiveData;
+
 import com.example.premierleagueapp.model.Team;
-import com.example.premierleagueapp.requests.ServiceGenerator;
-import com.example.premierleagueapp.requests.TeamEndpoints;
-
-import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.example.premierleagueapp.requests.clients.TeamDetailsAPIClient;
 
 public class TeamDetailsRepository {
     private static TeamDetailsRepository instance;
-    private ArrayList<Player> squad;
-    private Team team;
-    private static final String TOKEN = "f3a2512d06ae44e68a95be8689245c1f";
+    private TeamDetailsAPIClient teamDetailsAPIClient;
+    private Application application;
 
-    private TeamDetailsRepository() {
-        squad = new ArrayList<>();
+    private TeamDetailsRepository(Application application) {
+        this.application = application;
+        teamDetailsAPIClient = new TeamDetailsAPIClient(application);
     }
 
-    public static TeamDetailsRepository getInstance() {
+    public static TeamDetailsRepository getInstance(Application application) {
         if (instance == null) {
-            instance = new TeamDetailsRepository();
+            instance = new TeamDetailsRepository(application);
         }
         return instance;
     }
 
-    public MutableLiveData<Team> getTeamByIdData(int id) {
-        squad = new ArrayList<>();
-        setTeamById(id);
-
-        MutableLiveData<Team> data = new MutableLiveData<>();
-        data.setValue(team);
-        return data;
+    public LiveData<Team> getTeamByIdData(int id) {
+        return teamDetailsAPIClient.getTeamByIdLiveData(id);
     }
-
-    private void setTeamById(int id) {
-        TeamEndpoints endpoints = ServiceGenerator.getTeamEndpoints();
-
-        Call<Team> call = endpoints.getTeamById(id, TOKEN);
-        call.enqueue(new Callback<Team>() {
-            @Override
-            public void onResponse(Call<Team> call, Response<Team> response) {
-                System.out.println("SUCCESSFUL LOAD OF : TEAM " + response.body());
-                Team apiTeam = response.body();
-                if(response.isSuccessful() && apiTeam != null) {
-                    squad = new ArrayList<>(apiTeam.getSquad());
-                    team = new Team(apiTeam.getId(), apiTeam.getArea(), apiTeam.getActiveCompetitions(), apiTeam.getName(), apiTeam.getShortName(), apiTeam.getTla(),
-                            apiTeam.getCrestUrl(), apiTeam.getAddress(), apiTeam.getPhone(), apiTeam.getWebsite(), apiTeam.getEmail(),
-                            apiTeam.getFounded(), apiTeam.getClubColors(), apiTeam.getVenue(), squad, apiTeam.getLastUpdated());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Team> call, Throwable t) {
-                System.out.println("Failed to load the data from api : TEAMS");
-
-            }
-        });
-    }
-
 
 }

@@ -3,6 +3,7 @@ package com.example.premierleagueapp.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -10,10 +11,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.premierleagueapp.R;
+import com.example.premierleagueapp.model.Player;
 import com.example.premierleagueapp.model.Team;
+
+import java.util.ArrayList;
 
 public class RecycleViewAdapterTeamDetails extends RecyclerView.Adapter<RecycleViewAdapterTeamDetails.ViewHolder>{
     private Team team;
+    private ArrayList<Player> squad;
 
     public RecycleViewAdapterTeamDetails() {
 
@@ -28,23 +33,33 @@ public class RecycleViewAdapterTeamDetails extends RecyclerView.Adapter<RecycleV
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.name.setText(team.getSquad().get(position).getName());
-        holder.nationality.setText(team.getSquad().get(position).getNationality());
-//        holder.number.setText(String.valueOf(team.getSquad().get(position).getShirtNumber()));
-        holder.position.setText(team.getSquad().get(position).getPosition());
-
+        holder.name.setText(squad.get(position).getName());
+        holder.nationality.setText(squad.get(position).getNationality());
+        holder.number.setText(String.valueOf(team.getSquad().get(position).getShirtNumber()));
+        holder.position.setText(squad.get(position).getPosition());
+//        holder.address.setText(team.getAddress());
+//        holder.clubColors.setText(team.getClubColors());
+//        holder.email.setText(team.getEmail());
+//        holder.founded.setText(String.valueOf(team.getFounded()));
+//        holder.name.setText(team.getName());
+//        holder.shortName.setText(team.getShortName());
+//        holder.phone.setText(team.getPhone());
+//        holder.venue.setText(team.getVenue());
+//        holder.website.setText(team.getWebsite());
+//        holder.tla.setText(team.getTla());
     }
 
     @Override
     public int getItemCount() {
-        if(team.getSquad() != null) {
-            return team.getSquad().size();
+        if(squad != null) {
+            return squad.size();
         }
         return 0;
     }
 
     public void setTeam(Team team) {
         this.team = team;
+        this.squad = team.getSquad();
         notifyDataSetChanged();
     }
 
@@ -54,6 +69,17 @@ public class RecycleViewAdapterTeamDetails extends RecyclerView.Adapter<RecycleV
         TextView position;
         TextView name;
         TextView nationality;
+        TextView teamName;
+        TextView shortName;
+        TextView tla;
+        TextView address;
+        TextView phone;
+        TextView website;
+        TextView email;
+        TextView founded;
+        TextView clubColors;
+        TextView venue;
+        LinearLayout linearLayout;
         RelativeLayout parentLayout;
 
         public ViewHolder(@NonNull View itemView) {
@@ -64,6 +90,17 @@ public class RecycleViewAdapterTeamDetails extends RecyclerView.Adapter<RecycleV
             name = itemView.findViewById(R.id.player_name);
             nationality = itemView.findViewById(R.id.player_nationality);
             parentLayout = itemView.findViewById(R.id.player_item_layout);
+            teamName = itemView.findViewById(R.id.teamName);
+            shortName = itemView.findViewById(R.id.shortName);
+            tla = itemView.findViewById(R.id.tla);
+            address = itemView.findViewById(R.id.address);
+            phone = itemView.findViewById(R.id.phone);
+            website = itemView.findViewById(R.id.website);
+            email = itemView.findViewById(R.id.email);
+            founded = itemView.findViewById(R.id.founded);
+            clubColors = itemView.findViewById(R.id.clubColors);
+            venue = itemView.findViewById(R.id.venue);
+            linearLayout = itemView.findViewById(R.id.teamActivity);
 
         }
     }
