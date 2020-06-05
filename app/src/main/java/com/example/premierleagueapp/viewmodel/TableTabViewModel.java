@@ -1,28 +1,26 @@
 package com.example.premierleagueapp.viewmodel;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.example.premierleagueapp.model.Table;
 import com.example.premierleagueapp.repositories.TableRepository;
 
 import java.util.ArrayList;
 
-public class TableTabViewModel extends ViewModel {
-    private MutableLiveData<ArrayList<Table>> standingList;
+public class TableTabViewModel extends AndroidViewModel {
     private TableRepository tableRepository;
 
-    public void init() {
-        if(standingList != null) {
-            return;
-        }
-        tableRepository = TableRepository.getInstance();
-        standingList = tableRepository.getStandingsData();
+    public TableTabViewModel(@NonNull Application application) {
+        super(application);
+        tableRepository = TableRepository.getInstance(application);
     }
 
     public LiveData<ArrayList<Table>> getStandings() {
-        return standingList;
+        return tableRepository.getStandingsData();
     }
 
 }

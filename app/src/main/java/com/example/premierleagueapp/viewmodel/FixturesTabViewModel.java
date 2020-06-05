@@ -1,5 +1,9 @@
 package com.example.premierleagueapp.viewmodel;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -11,26 +15,16 @@ import com.example.premierleagueapp.repositories.FixturesRepository;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class FixturesTabViewModel extends ViewModel {
-    private MutableLiveData<ArrayList<Match>> matchList;
-    private MutableLiveData<ArrayList<Integer>> matchdays;
+public class FixturesTabViewModel extends AndroidViewModel {
     private FixturesRepository fixturesRepository;
 
-    public void init() {
-        if(matchList != null) {
-            return;
-        }
-        fixturesRepository = FixturesRepository.getInstance();
-        matchList = fixturesRepository.getFixturesData();
-        matchdays = fixturesRepository.getMatchDays();
+    public FixturesTabViewModel(@NonNull Application application) {
+        super(application);
+        fixturesRepository = FixturesRepository.getInstance(application);
     }
 
     public LiveData<ArrayList<Match>> getMatches() {
-        return matchList;
-    }
-
-    public LiveData<ArrayList<Integer>> getMachdays() {
-        return matchdays;
+        return fixturesRepository.getFixturesData();
     }
 
 }

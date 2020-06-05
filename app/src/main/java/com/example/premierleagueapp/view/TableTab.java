@@ -8,19 +8,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.premierleagueapp.R;
 import com.example.premierleagueapp.adapter.RecyclerViewAdapterTable;
-import com.example.premierleagueapp.model.Table;
 import com.example.premierleagueapp.viewmodel.TableTabViewModel;
 
-import java.util.List;
-
-public class TableTab extends Fragment implements RecyclerViewAdapterTable.OnListItemClickListener{
+public class TableTab extends Fragment implements RecyclerViewAdapterTable.OnListItemClickListener {
     private TableTabViewModel tableTabViewModel;
     private RecyclerViewAdapterTable adapter;
 
@@ -47,15 +43,8 @@ public class TableTab extends Fragment implements RecyclerViewAdapterTable.OnLis
 
     private void setViewModel() {
         tableTabViewModel = new ViewModelProvider(this).get(TableTabViewModel.class);
-        tableTabViewModel.init();
 
-        tableTabViewModel.getStandings().observe(getViewLifecycleOwner(), new Observer<List<Table>>() {
-
-            @Override
-            public void onChanged(List<Table> tables) {
-                adapter.notifyDataSetChanged();
-            }
-        });
+        tableTabViewModel.getStandings().observe(getViewLifecycleOwner(), tables -> adapter.setTable(tables));
     }
 
 

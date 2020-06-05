@@ -90,7 +90,15 @@ public class RecyclerViewAdapterTable extends RecyclerView.Adapter<RecyclerViewA
 
     @Override
     public int getItemCount() {
-        return tables.size();
+        if (tables != null) {
+            return tables.size();
+        }
+        return 0;
+    }
+
+    public void setTable(ArrayList<Table> tables) {
+        this.tables = tables;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

@@ -11,22 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.premierleagueapp.R;
-import com.example.premierleagueapp.model.AwayTeam;
-import com.example.premierleagueapp.model.FullTime;
-import com.example.premierleagueapp.model.HomeTeam;
 import com.example.premierleagueapp.model.Match;
-import com.example.premierleagueapp.model.Score;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerViewAdapterFixtures.ViewHolder>{
+public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerViewAdapterFixtures.ViewHolder> {
     private static final String TAG = "RecyclerViewAdapterFixtures";
     private ArrayList<Match> match;
-    private ArrayList<Integer> matchdays;
 
-    public RecyclerViewAdapterFixtures(ArrayList<Match> match, ArrayList<Integer> matchdays) {
-        this.match = match;
-        this.matchdays = matchdays;
+    public RecyclerViewAdapterFixtures() {
     }
 
     @NonNull
@@ -44,97 +37,105 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
         holder.scoreAway.setText(String.valueOf(match.get(position).getScore().getFullTime().getAwayTeam()));
         holder.awayTeam.setText(match.get(position).getAwayTeam().getName());
 
-        if(match.get(position).getHomeTeam().getName().equals("Arsenal FC")) {
+        if (match.get(position).getHomeTeam().getName().equals("Arsenal FC")) {
             holder.homeImage.setImageResource(R.drawable.arsenal_fc);
-        } else if(match.get(position).getHomeTeam().getName().equals("Aston Villa FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Aston Villa FC")) {
             holder.homeImage.setImageResource(R.drawable.aston_villa);
-        } else if(match.get(position).getHomeTeam().getName().equals("Chelsea FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Chelsea FC")) {
             holder.homeImage.setImageResource(R.drawable.chelsea);
-        } else if(match.get(position).getHomeTeam().getName().equals("Everton FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Everton FC")) {
             holder.homeImage.setImageResource(R.drawable.everton);
-        } else if(match.get(position).getHomeTeam().getName().equals("Liverpool FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Liverpool FC")) {
             holder.homeImage.setImageResource(R.drawable.liverpool);
-        } else if(match.get(position).getHomeTeam().getName().equals("Manchester City FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Manchester City FC")) {
             holder.homeImage.setImageResource(R.drawable.manchester_city);
-        } else if(match.get(position).getHomeTeam().getName().equals("Manchester United FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Manchester United FC")) {
             holder.homeImage.setImageResource(R.drawable.manchester_united);
-        } else if(match.get(position).getHomeTeam().getName().equals("Newcastle United FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Newcastle United FC")) {
             holder.homeImage.setImageResource(R.drawable.newcastle_united);
-        } else if(match.get(position).getHomeTeam().getName().equals("Norwich City FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Norwich City FC")) {
             holder.homeImage.setImageResource(R.drawable.norwich_city);
-        } else if(match.get(position).getHomeTeam().getName().equals("Tottenham Hotspur FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Tottenham Hotspur FC")) {
             holder.homeImage.setImageResource(R.drawable.tottenham_hotspur);
-        } else if(match.get(position).getHomeTeam().getName().equals("Wolverhampton Wanderers FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Wolverhampton Wanderers FC")) {
             holder.homeImage.setImageResource(R.drawable.wolves);
-        } else if(match.get(position).getHomeTeam().getName().equals("Burnley FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Burnley FC")) {
             holder.homeImage.setImageResource(R.drawable.burnely);
-        } else if(match.get(position).getHomeTeam().getName().equals("Leicester City FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Leicester City FC")) {
             holder.homeImage.setImageResource(R.drawable.leicester_city);
-        } else if(match.get(position).getHomeTeam().getName().equals("Southampton FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Southampton FC")) {
             holder.homeImage.setImageResource(R.drawable.southampton);
-        } else if(match.get(position).getHomeTeam().getName().equals("Watford FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Watford FC")) {
             holder.homeImage.setImageResource(R.drawable.watford);
-        } else if(match.get(position).getHomeTeam().getName().equals("Crystal Palace FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Crystal Palace FC")) {
             holder.homeImage.setImageResource(R.drawable.crystal_palace);
-        } else if(match.get(position).getHomeTeam().getName().equals("Sheffield United FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Sheffield United FC")) {
             holder.homeImage.setImageResource(R.drawable.sheffield_united);
-        } else if(match.get(position).getHomeTeam().getName().equals("Brighton & Hove Albion FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("Brighton & Hove Albion FC")) {
             holder.homeImage.setImageResource(R.drawable.brighton);
-        } else if(match.get(position).getHomeTeam().getName().equals("West Ham United FC")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("West Ham United FC")) {
             holder.homeImage.setImageResource(R.drawable.west_ham);
-        } else if(match.get(position).getHomeTeam().getName().equals("AFC Bournemouth")) {
+        } else if (match.get(position).getHomeTeam().getName().equals("AFC Bournemouth")) {
             holder.homeImage.setImageResource(R.drawable.bournemonth);
         }
 
         if (match.get(position).getAwayTeam().getName().equals("Arsenal FC")) {
             holder.awayImage.setImageResource(R.drawable.arsenal_fc);
-        } else if(match.get(position).getAwayTeam().getName().equals("Aston Villa FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Aston Villa FC")) {
             holder.awayImage.setImageResource(R.drawable.aston_villa);
-        } else if(match.get(position).getAwayTeam().getName().equals("Chelsea FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Chelsea FC")) {
             holder.awayImage.setImageResource(R.drawable.chelsea);
-        } else if(match.get(position).getAwayTeam().getName().equals("Everton FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Everton FC")) {
             holder.awayImage.setImageResource(R.drawable.everton);
-        } else if(match.get(position).getAwayTeam().getName().equals("Liverpool FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Liverpool FC")) {
             holder.awayImage.setImageResource(R.drawable.liverpool);
-        } else if(match.get(position).getAwayTeam().getName().equals("Manchester City FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Manchester City FC")) {
             holder.awayImage.setImageResource(R.drawable.manchester_city);
-        } else if(match.get(position).getAwayTeam().getName().equals("Manchester United FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Manchester United FC")) {
             holder.awayImage.setImageResource(R.drawable.manchester_united);
-        } else if(match.get(position).getAwayTeam().getName().equals("Newcastle United FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Newcastle United FC")) {
             holder.awayImage.setImageResource(R.drawable.newcastle_united);
-        } else if(match.get(position).getAwayTeam().getName().equals("Norwich City FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Norwich City FC")) {
             holder.awayImage.setImageResource(R.drawable.norwich_city);
-        } else if(match.get(position).getAwayTeam().getName().equals("Tottenham Hotspur FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Tottenham Hotspur FC")) {
             holder.awayImage.setImageResource(R.drawable.tottenham_hotspur);
-        } else if(match.get(position).getAwayTeam().getName().equals("Wolverhampton Wanderers FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Wolverhampton Wanderers FC")) {
             holder.awayImage.setImageResource(R.drawable.wolves);
-        } else if(match.get(position).getAwayTeam().getName().equals("Burnley FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Burnley FC")) {
             holder.awayImage.setImageResource(R.drawable.burnely);
-        } else if(match.get(position).getAwayTeam().getName().equals("Leicester City FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Leicester City FC")) {
             holder.awayImage.setImageResource(R.drawable.leicester_city);
-        } else if(match.get(position).getAwayTeam().getName().equals("Southampton FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Southampton FC")) {
             holder.awayImage.setImageResource(R.drawable.southampton);
-        } else if(match.get(position).getAwayTeam().getName().equals("Watford FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Watford FC")) {
             holder.awayImage.setImageResource(R.drawable.watford);
-        } else if(match.get(position).getAwayTeam().getName().equals("Crystal Palace FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Crystal Palace FC")) {
             holder.awayImage.setImageResource(R.drawable.crystal_palace);
-        } else if(match.get(position).getAwayTeam().getName().equals("Sheffield United FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Sheffield United FC")) {
             holder.awayImage.setImageResource(R.drawable.sheffield_united);
-        } else if(match.get(position).getAwayTeam().getName().equals("Brighton & Hove Albion FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("Brighton & Hove Albion FC")) {
             holder.awayImage.setImageResource(R.drawable.brighton);
-        } else if(match.get(position).getAwayTeam().getName().equals("West Ham United FC")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("West Ham United FC")) {
             holder.awayImage.setImageResource(R.drawable.west_ham);
-        } else if(match.get(position).getAwayTeam().getName().equals("AFC Bournemouth")) {
+        } else if (match.get(position).getAwayTeam().getName().equals("AFC Bournemouth")) {
             holder.awayImage.setImageResource(R.drawable.bournemonth);
         }
     }
 
     @Override
     public int getItemCount() {
-        return match.size();
+        if (match != null) {
+            return match.size();
+        }
+        return 0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public void setMatches(ArrayList<Match> matches) {
+        this.match = matches;
+        notifyDataSetChanged();
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView homeTeam;
         TextView scoreHome;

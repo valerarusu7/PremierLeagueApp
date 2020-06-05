@@ -11,7 +11,7 @@ import retrofit2.http.Header;
 
 public interface TableEndpoints {
 
-    @GET("v2/competitions/2021/standings?standingType=TOTAL")
+    @GET("/v2/competitions/2021/standings?standingType=TOTAL")
     Call<CompetitionStandings> getTable(@Header("X-Auth-Token") String authToken);
 
 }

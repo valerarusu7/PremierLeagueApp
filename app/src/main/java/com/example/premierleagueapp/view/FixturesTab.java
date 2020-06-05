@@ -15,19 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.premierleagueapp.R;
 import com.example.premierleagueapp.adapter.RecyclerViewAdapterFixtures;
-import com.example.premierleagueapp.adapter.RecyclerViewAdapterMatchdays;
-import com.example.premierleagueapp.model.FixturesByMatchday;
 import com.example.premierleagueapp.model.Match;
 import com.example.premierleagueapp.viewmodel.FixturesTabViewModel;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class FixturesTab extends Fragment {
-    private RecyclerViewAdapterMatchdays adapter;
+    private RecyclerViewAdapterFixtures adapter;
     private FixturesTabViewModel fixturesTabViewModel;
-    private ArrayList<Match> matchesByMatchday;
 
     public FixturesTab() {
         // Required empty public constructor
@@ -44,7 +39,7 @@ public class FixturesTab extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view_matchday);
-        adapter = new RecyclerViewAdapterMatchdays(fixturesTabViewModel.getMachdays().getValue(), fixturesTabViewModel.getMatches().getValue(), getActivity());
+        adapter = new RecyclerViewAdapterFixtures();
         recyclerView.setAdapter(adapter);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(llm);
@@ -52,14 +47,7 @@ public class FixturesTab extends Fragment {
 
     private void setViewModel() {
         fixturesTabViewModel = new ViewModelProvider(this).get(FixturesTabViewModel.class);
-        fixturesTabViewModel.init();
 
-        fixturesTabViewModel.getMatches().observe(getViewLifecycleOwner(), new Observer<ArrayList<Match>>() {
-
-            @Override
-            public void onChanged(ArrayList<Match> matches) {
-                adapter.notifyDataSetChanged();
-            }
-        });
+        fixturesTabViewModel.getMatches().observe(getViewLifecycleOwner(), matches -> adapter.setMatches(matches));
     }
 }
