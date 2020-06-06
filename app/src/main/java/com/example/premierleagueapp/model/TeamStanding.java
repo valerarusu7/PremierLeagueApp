@@ -22,4 +22,16 @@ public class TeamStanding {
     public String getCrestUrl() {
         return crestUrl;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCrestUrl(String crestUrl) {
+        this.crestUrl = crestUrl;
+    }
 }

@@ -27,6 +27,7 @@ public class TableTab extends Fragment implements RecyclerViewAdapterTable.OnLis
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        setHasOptionsMenu(false);
         setViewModel();
 
         return inflater.inflate(R.layout.table_fragment, container, false);

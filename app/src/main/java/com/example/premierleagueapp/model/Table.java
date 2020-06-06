@@ -64,4 +64,44 @@ public class Table {
     public int getGoalDifference() {
         return goalDifference;
     }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    public void setTeam(TeamStanding team) {
+        this.team = team;
+    }
+
+    public void setPlayedGames(int playedGames) {
+        this.playedGames = playedGames;
+    }
+
+    public void setWon(int won) {
+        this.won = won;
+    }
+
+    public void setDraw(int draw) {
+        this.draw = draw;
+    }
+
+    public void setLost(int lost) {
+        this.lost = lost;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public void setGoalsFor(int goalsFor) {
+        this.goalsFor = goalsFor;
+    }
+
+    public void setGoalsAgainst(int goalsAgainst) {
+        this.goalsAgainst = goalsAgainst;
+    }
+
+    public void setGoalDifference(int goalDifference) {
+        this.goalDifference = goalDifference;
+    }
 }

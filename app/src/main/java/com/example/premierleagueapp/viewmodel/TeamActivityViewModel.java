@@ -1,6 +1,9 @@
 package com.example.premierleagueapp.viewmodel;
 
 import android.app.Application;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -20,4 +23,5 @@ public class TeamActivityViewModel extends AndroidViewModel {
     public LiveData<Team> getTeam(int id) {
         return teamDetailsRepository.getTeamByIdData(id);
     }
+
 }

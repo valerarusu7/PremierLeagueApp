@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.premierleagueapp.model.Match;
 import com.example.premierleagueapp.model.Matches;
+import com.example.premierleagueapp.model.Table;
 import com.example.premierleagueapp.requests.FixturesEndpoints;
 import com.example.premierleagueapp.requests.ServiceGenerator;
 

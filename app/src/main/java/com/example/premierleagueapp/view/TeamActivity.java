@@ -1,6 +1,8 @@
 package com.example.premierleagueapp.view;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,9 +10,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.premierleagueapp.R;
 import com.example.premierleagueapp.adapter.RecycleViewAdapterTeamDetails;
 import com.example.premierleagueapp.viewmodel.TeamActivityViewModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
@@ -18,6 +22,7 @@ public class TeamActivity extends AppCompatActivity {
     private TeamActivityViewModel teamActivityViewModel;
     private RecycleViewAdapterTeamDetails adapter;
     private int id;
+    private String url;
     private TextView teamName;
     private TextView shortName;
     private TextView tla;
@@ -28,11 +33,13 @@ public class TeamActivity extends AppCompatActivity {
     private TextView founded;
     private TextView clubColors;
     private TextView venue;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.team_activity);
+        imageView = findViewById(R.id.imageViewTeam);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -40,7 +47,9 @@ public class TeamActivity extends AppCompatActivity {
         if (bundle != null && bundle.containsKey(TeamsTab.TEAM)) {
             id = bundle.getInt(TeamsTab.TEAM);
         }
-
+        if (bundle != null) {
+            url = bundle.getString("image");
+        }
         setViewModel();
         RecyclerView recyclerView = findViewById(R.id.squad);
         adapter = new RecycleViewAdapterTeamDetails();
@@ -49,7 +58,6 @@ public class TeamActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-//        setTitle(teamActivityViewModel.getTeam().getValue().getName());
 
     }
 
@@ -76,6 +84,7 @@ public class TeamActivity extends AppCompatActivity {
         teamActivityViewModel = new ViewModelProvider(this).get(TeamActivityViewModel.class);
 
         teamActivityViewModel.getTeam(id).observe(this, team -> {
+            setTitle(team.getName());
             adapter.setTeam(team);
             setTextViews();
             address.setText(team.getAddress());
@@ -88,6 +97,7 @@ public class TeamActivity extends AppCompatActivity {
             venue.setText(team.getVenue());
             website.setText(team.getWebsite());
             tla.setText(team.getTla());
+            Glide.with(imageView).load(url).into(imageView);
         });
     }
 

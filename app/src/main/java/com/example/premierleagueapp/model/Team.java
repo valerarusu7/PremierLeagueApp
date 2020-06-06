@@ -1,10 +1,26 @@
 package com.example.premierleagueapp.model;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
+
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import java.util.ArrayList;
 
+@Entity(tableName = "favorite_team_table")
 public class Team {
+    @PrimaryKey(autoGenerate = true)
+    private int uid;
+    @NonNull
+    @Ignore
     private int id;
+    @Ignore
     private Area area;
+    @Ignore
     private ArrayList<Competition> activeCompetitions;
     private String name;
     private String shortName;
@@ -17,6 +33,7 @@ public class Team {
     private int founded;
     private String clubColors;
     private String venue;
+    @Ignore
     private ArrayList<Player> squad;
     private String lastUpdated;
 
@@ -37,6 +54,17 @@ public class Team {
         this.venue = venue;
         this.squad = squad;
         this.lastUpdated = lastUpdated;
+    }
+
+    public Team() {
+    }
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
     public int getId() {
@@ -165,6 +193,11 @@ public class Team {
 
     public void setLastUpdated(String lastUpdated) {
         this.lastUpdated = lastUpdated;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
 
