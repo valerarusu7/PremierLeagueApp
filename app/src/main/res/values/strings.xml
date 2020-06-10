@@ -28,4 +28,7 @@
     <string name="name">Name</string>
     <string name="nationality">Nationality</string>
     <string name="dash">-</string>
+    <string name="set_prediction">Set Prediction</string>
+    <string name="home_team_goals">Home team goals:</string>
+    <string name="away_team_goals">Away team goals:</string>
 </resources>

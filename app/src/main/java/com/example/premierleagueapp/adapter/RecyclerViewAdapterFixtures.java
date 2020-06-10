@@ -1,5 +1,7 @@
 package com.example.premierleagueapp.adapter;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.premierleagueapp.R;
 import com.example.premierleagueapp.model.Match;
+import com.example.premierleagueapp.view.PredictionActivity;
 
 import java.util.ArrayList;
 
@@ -28,6 +31,7 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
         return new ViewHolder(view);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
@@ -35,6 +39,18 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
         holder.scoreHome.setText(String.valueOf(match.get(position).getScore().getFullTime().getHomeTeam()));
         holder.scoreAway.setText(String.valueOf(match.get(position).getScore().getFullTime().getAwayTeam()));
         holder.awayTeam.setText(match.get(position).getAwayTeam().getName());
+
+        if(!match.get(position).getStatus().equals("FINISHED") || match.get(position).getReferees().get(0).getName() == null) {
+            holder.scoreHome.setText("?");
+            holder.scoreAway.setText("?");
+            holder.parentLayout.setOnClickListener(v -> {
+                Intent intent = new Intent(v.getContext(), PredictionActivity.class);
+                intent.putExtra("homeTeamName", match.get(position).getHomeTeam().getName());
+                intent.putExtra("awayTeamName", match.get(position).getAwayTeam().getName());
+                intent.putExtra("id", match.get(position).getId());
+                v.getContext().startActivity(intent);
+            });
+        }
 
         switch (match.get(position).getHomeTeam().getName()) {
             case "Arsenal FC":
