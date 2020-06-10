@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.premierleagueapp.R;
 
 public class WelcomeScreenActivity extends AppCompatActivity {
-    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +18,7 @@ public class WelcomeScreenActivity extends AppCompatActivity {
     }
 
     private void setWelcomeScreen() {
-        handler = new Handler();
+        Handler handler = new Handler();
         handler.postDelayed(() -> {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);

@@ -16,7 +16,6 @@ import com.example.premierleagueapp.model.Match;
 import java.util.ArrayList;
 
 public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerViewAdapterFixtures.ViewHolder> {
-    private static final String TAG = "RecyclerViewAdapterFixtures";
     private ArrayList<Match> match;
 
     public RecyclerViewAdapterFixtures() {

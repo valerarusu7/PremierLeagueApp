@@ -6,8 +6,6 @@
     <string name="tab1">Teams</string>
     <string name="tab2">Table</string>
     <string name="tab3">Fixtures</string>
-    <string name="position">Position</string>
-    <string name="team">Team</string>
     <string name="points">Points</string>
     <string name="played">Played</string>
     <string name="won">Won</string>

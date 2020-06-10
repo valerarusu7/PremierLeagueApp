@@ -37,16 +37,6 @@ public class RecycleViewAdapterTeamDetails extends RecyclerView.Adapter<RecycleV
         holder.nationality.setText(squad.get(position).getNationality());
         holder.number.setText(String.valueOf(team.getSquad().get(position).getShirtNumber()));
         holder.position.setText(squad.get(position).getPosition());
-//        holder.address.setText(team.getAddress());
-//        holder.clubColors.setText(team.getClubColors());
-//        holder.email.setText(team.getEmail());
-//        holder.founded.setText(String.valueOf(team.getFounded()));
-//        holder.name.setText(team.getName());
-//        holder.shortName.setText(team.getShortName());
-//        holder.phone.setText(team.getPhone());
-//        holder.venue.setText(team.getVenue());
-//        holder.website.setText(team.getWebsite());
-//        holder.tla.setText(team.getTla());
     }
 
     @Override

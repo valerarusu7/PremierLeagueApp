@@ -10,6 +10,8 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.premierleagueapp.R;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
     private static final String CURRENT_POSITION_KEY = "Position";
     private static final String CURRENT_POSITION2_KEY = "PositionTab";
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             int currentPos = savedInstanceState.getInt(CURRENT_POSITION_KEY);
             int currentTabPos = savedInstanceState.getInt(CURRENT_POSITION2_KEY);
-            tabLayout.getTabAt(currentTabPos).select();
+            Objects.requireNonNull(tabLayout.getTabAt(currentTabPos)).select();
             viewPager.setCurrentItem(currentPos);
         } else {
             setFragment(teamsTab);

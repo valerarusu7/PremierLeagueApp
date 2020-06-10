@@ -27,16 +27,14 @@ public class TeamsTab extends Fragment implements RecyclerViewAdapterTeams.OnLis
     private TeamTabViewModel teamTabViewModel;
     private Teams myTeams;
     private MenuItem fav_team;
-    private View view;
 
     public TeamsTab() {
-        // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.teams_fragment, container, false);
+        View view = inflater.inflate(R.layout.teams_fragment, container, false);
         setHasOptionsMenu(true);
         fav_team = view.findViewById(R.id.fav_team);
         setViewModel();
@@ -70,7 +68,7 @@ public class TeamsTab extends Fragment implements RecyclerViewAdapterTeams.OnLis
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.toolbar, menu);
 
         fav_team = menu.findItem(R.id.fav_team);
@@ -98,7 +96,6 @@ public class TeamsTab extends Fragment implements RecyclerViewAdapterTeams.OnLis
         Intent intent = new Intent(getActivity(), TeamActivity.class);
         intent.putExtra(TEAM, teamID);
         intent.putExtra("image", myTeams.getTeams().get(clickedItemIndex).getCrestUrl());
-        System.out.println(teamTabViewModel.getTeams().getValue().get(clickedItemIndex).getId());
         startActivity(intent);
     }
 }

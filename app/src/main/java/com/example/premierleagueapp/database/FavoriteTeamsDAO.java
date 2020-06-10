@@ -14,9 +14,6 @@ public interface FavoriteTeamsDAO {
     @Insert
     void insert(Team team);
 
-    @Update
-    void update(Team team);
-
     @Query("SELECT * FROM favorite_team_table")
     LiveData<Team> getFavoriteTeam();
 

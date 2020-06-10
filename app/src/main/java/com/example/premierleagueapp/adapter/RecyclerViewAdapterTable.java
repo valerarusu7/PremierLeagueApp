@@ -17,7 +17,6 @@ import com.example.premierleagueapp.model.Table;
 import java.util.ArrayList;
 
 public class RecyclerViewAdapterTable extends RecyclerView.Adapter<RecyclerViewAdapterTable.ViewHolder> {
-
     private ArrayList<Table> tables;
     private OnListItemClickListener mOnListItemClickListener;
 
@@ -65,7 +64,7 @@ public class RecyclerViewAdapterTable extends RecyclerView.Adapter<RecyclerViewA
         void onListItemClick(int clickedItemIndex);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView position;
         TextView club;

@@ -6,10 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,7 +17,6 @@ import com.example.premierleagueapp.viewmodel.FixturesTabViewModel;
 
 public class FixturesTab extends Fragment {
     private RecyclerViewAdapterFixtures adapter;
-    private FixturesTabViewModel fixturesTabViewModel;
     private ProgressBar progressBar;
 
     public FixturesTab() {
@@ -48,7 +44,7 @@ public class FixturesTab extends Fragment {
     }
 
     private void setViewModel() {
-        fixturesTabViewModel = new ViewModelProvider(this).get(FixturesTabViewModel.class);
+        FixturesTabViewModel fixturesTabViewModel = new ViewModelProvider(this).get(FixturesTabViewModel.class);
 
         fixturesTabViewModel.getMatches().observe(getViewLifecycleOwner(), matches -> adapter.setMatches(matches));
 

@@ -15,15 +15,12 @@ import java.util.ArrayList;
 public class TeamsRepository {
     private static TeamsRepository instance;
     private TeamsAPIClient teamsAPIClient;
-    private Application application;
     private FavoriteTeamsDAO favoriteTeamsDAO;
     private LiveData<Team> favoriteTeam;
-    private FavoriteTeamsDatabase database;
 
     public TeamsRepository(Application application) {
-        this.application = application;
         teamsAPIClient = new TeamsAPIClient(application);
-        database = FavoriteTeamsDatabase.getInstance(application);
+        FavoriteTeamsDatabase database = FavoriteTeamsDatabase.getInstance(application);
         favoriteTeamsDAO = database.getTeamsDAO();
         favoriteTeam = favoriteTeamsDAO.getFavoriteTeam();
     }

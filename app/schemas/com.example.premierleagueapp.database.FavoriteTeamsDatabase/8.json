@@ -1,0 +1,106 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 8,
+    "identityHash": "3b6718e3abf88749f5263bfa69458f85",
+    "entities": [
+      {
+        "tableName": "favorite_team_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `shortName` TEXT, `tla` TEXT, `crestUrl` TEXT, `address` TEXT, `phone` TEXT, `website` TEXT, `email` TEXT, `founded` INTEGER NOT NULL, `clubColors` TEXT, `venue` TEXT, `lastUpdated` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "uid",
+            "columnName": "uid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "shortName",
+            "columnName": "shortName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tla",
+            "columnName": "tla",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "crestUrl",
+            "columnName": "crestUrl",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "address",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phone",
+            "columnName": "phone",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "website",
+            "columnName": "website",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "founded",
+            "columnName": "founded",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clubColors",
+            "columnName": "clubColors",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "venue",
+            "columnName": "venue",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastUpdated",
+            "columnName": "lastUpdated",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "uid"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3b6718e3abf88749f5263bfa69458f85')"
+    ]
+  }
+}

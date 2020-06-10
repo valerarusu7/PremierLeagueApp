@@ -11,11 +11,9 @@ import java.util.ArrayList;
 
 public class FixturesRepository {
     private static FixturesRepository instance;
-    private Application application;
     private FixturesAPIClient fixturesAPIClient;
 
     public FixturesRepository(Application application) {
-        this.application = application;
         fixturesAPIClient = new FixturesAPIClient(application);
     }
 

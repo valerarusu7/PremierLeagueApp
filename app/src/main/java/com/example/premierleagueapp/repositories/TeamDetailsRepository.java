@@ -10,10 +10,8 @@ import com.example.premierleagueapp.requests.clients.TeamDetailsAPIClient;
 public class TeamDetailsRepository {
     private static TeamDetailsRepository instance;
     private TeamDetailsAPIClient teamDetailsAPIClient;
-    private Application application;
 
     private TeamDetailsRepository(Application application) {
-        this.application = application;
         teamDetailsAPIClient = new TeamDetailsAPIClient(application);
     }
 

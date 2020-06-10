@@ -59,7 +59,7 @@ public class RecyclerViewAdapterTeams extends RecyclerView.Adapter<RecyclerViewA
         void onListItemClick(int clickedItemIndex);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView imageView;
         TextView name;

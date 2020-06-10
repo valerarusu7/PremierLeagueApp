@@ -11,11 +11,9 @@ import java.util.ArrayList;
 
 public class TableRepository {
     private static TableRepository instance;
-    private Application application;
     private TableAPIClient tableAPIClient;
 
     public TableRepository(Application application) {
-        this.application = application;
         tableAPIClient = new TableAPIClient(application);
     }
 

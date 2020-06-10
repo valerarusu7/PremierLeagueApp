@@ -17,7 +17,6 @@ import com.example.premierleagueapp.viewmodel.TeamActivityViewModel;
 import java.util.Objects;
 
 public class TeamActivity extends AppCompatActivity {
-    private TeamActivityViewModel teamActivityViewModel;
     private RecycleViewAdapterTeamDetails adapter;
     private int id;
     private String url;
@@ -39,7 +38,7 @@ public class TeamActivity extends AppCompatActivity {
         setContentView(R.layout.team_activity);
         imageView = findViewById(R.id.imageViewTeam);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null && bundle.containsKey(TeamsTab.TEAM)) {
@@ -79,7 +78,7 @@ public class TeamActivity extends AppCompatActivity {
     }
 
     private void setViewModel() {
-        teamActivityViewModel = new ViewModelProvider(this).get(TeamActivityViewModel.class);
+        TeamActivityViewModel teamActivityViewModel = new ViewModelProvider(this).get(TeamActivityViewModel.class);
 
         teamActivityViewModel.getTeam(id).observe(this, team -> {
             setTitle(team.getName());

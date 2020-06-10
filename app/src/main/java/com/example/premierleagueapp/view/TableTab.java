@@ -21,7 +21,6 @@ public class TableTab extends Fragment implements RecyclerViewAdapterTable.OnLis
     private RecyclerViewAdapterTable adapter;
 
     public TableTab() {
-        // Required empty public constructor
     }
 
     @Override
