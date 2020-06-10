@@ -11,6 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="horizontal">
 
         <FrameLayout
@@ -21,13 +22,15 @@
             <FrameLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                tools:ignore="UselessParent">
 
                 <ImageView
                     android:id="@+id/imageViewTeam"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/teamimage" />
             </FrameLayout>
 
         </FrameLayout>
@@ -101,7 +104,8 @@
             <ImageView
                 android:id="@+id/crestUrl"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/teamimage" />
 
         </LinearLayout>
     </LinearLayout>
@@ -120,7 +124,7 @@
             android:layout_gravity="center"
             android:layout_weight="5"
             android:gravity="center"
-            android:text="Nr."
+            android:text="@string/nr"
             android:textColor="@color/colorPrimary" />
 
         <TextView
@@ -130,7 +134,7 @@
             android:layout_gravity="center"
             android:layout_weight="4"
             android:gravity="center"
-            android:text="Position"
+            android:text="@string/position"
             android:textColor="@color/colorPrimary" />
 
         <TextView
@@ -140,7 +144,7 @@
             android:layout_gravity="center"
             android:layout_weight="3"
             android:gravity="center"
-            android:text="Name"
+            android:text="@string/name"
             android:textColor="@color/colorPrimary" />
 
         <TextView
@@ -150,7 +154,7 @@
             android:layout_gravity="center"
             android:layout_weight="4"
             android:gravity="center"
-            android:text="Nationality"
+            android:text="@string/nationality"
             android:textColor="@color/colorPrimary" />
 
 

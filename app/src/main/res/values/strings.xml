@@ -23,4 +23,11 @@
     <string name="pts">PTS</string>
     <string name="premier_league">Premier League</string>
     <string name="p">P</string>
+    <string name="team">Team</string>
+    <string name="teamimage">TeamImage</string>
+    <string name="nr">Nr.</string>
+    <string name="position">Position</string>
+    <string name="name">Name</string>
+    <string name="nationality">Nationality</string>
+    <string name="dash">-</string>
 </resources>

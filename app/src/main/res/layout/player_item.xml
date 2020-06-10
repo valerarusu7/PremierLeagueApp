@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/player_item_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -9,7 +10,8 @@
         android:layout_height="30dp"
         android:layout_margin="1dp"
         android:background="@color/colorPrimary"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
 
         <TextView
             android:id="@+id/player_number"
@@ -18,7 +20,6 @@
             android:layout_gravity="center"
             android:layout_weight="5"
             android:gravity="center"
-            android:text="1"
             android:textColor="@color/colorAccent" />
 
         <TextView
@@ -28,7 +29,6 @@
             android:layout_gravity="center"
             android:layout_weight="4"
             android:gravity="center"
-            android:text="GK"
             android:textColor="@color/colorAccent" />
 
         <TextView
@@ -38,7 +38,6 @@
             android:layout_gravity="center"
             android:layout_weight="3"
             android:gravity="center"
-            android:text="David De Gea"
             android:textColor="@color/colorAccent" />
 
         <TextView
@@ -48,9 +47,7 @@
             android:layout_gravity="center"
             android:layout_weight="4"
             android:gravity="center"
-            android:text="Spain"
             android:textColor="@color/colorAccent" />
-
 
     </LinearLayout>
 

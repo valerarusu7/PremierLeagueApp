@@ -23,4 +23,8 @@ public class FixturesTabViewModel extends AndroidViewModel {
         return fixturesRepository.getFixturesData();
     }
 
+    public LiveData<Boolean> getIsLoading() {
+        return fixturesRepository.getIsLoading();
+    }
+
 }

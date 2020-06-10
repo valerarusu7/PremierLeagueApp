@@ -29,4 +29,8 @@ public class FixturesRepository {
     public LiveData<ArrayList<Match>> getFixturesData() {
         return fixturesAPIClient.getFixturesLiveData();
     }
+
+    public LiveData<Boolean> getIsLoading() {
+        return fixturesAPIClient.getIsLoading();
+    }
 }

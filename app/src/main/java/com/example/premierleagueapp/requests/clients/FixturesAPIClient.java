@@ -18,6 +18,7 @@ import retrofit2.Response;
 
 public class FixturesAPIClient {
     private MutableLiveData<ArrayList<Match>> fixturesLiveData = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isLoading = new MutableLiveData<>();
     private Application application;
 
     public FixturesAPIClient(Application application) {
@@ -25,6 +26,7 @@ public class FixturesAPIClient {
     }
 
     public LiveData<ArrayList<Match>> getFixturesLiveData() {
+        isLoading.setValue(true);
         FixturesEndpoints endpoints = ServiceGenerator.getFixturesEndpoints();
 
         Call<Matches> call = endpoints.getFixtures(Token.getTOKEN());
@@ -35,6 +37,7 @@ public class FixturesAPIClient {
                 if (response.isSuccessful() && apiMatches != null) {
                     fixturesLiveData.setValue(apiMatches.getMatches());
                 }
+                isLoading.setValue(false);
             }
 
             @Override
@@ -44,5 +47,9 @@ public class FixturesAPIClient {
             }
         });
         return fixturesLiveData;
+    }
+
+    public MutableLiveData<Boolean> getIsLoading() {
+        return isLoading;
     }
 }
