@@ -19,8 +19,10 @@ import java.util.Objects;
 public class PredictionAPIClient {
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("predictions");
     private MutableLiveData<Prediction> livePrediction = new MutableLiveData<>();
-    private Prediction prediction;
+    private Application application;
+
     public PredictionAPIClient(Application application) {
+        this.application = application;
     }
 
     public void createPrediction(Prediction prediction) {
