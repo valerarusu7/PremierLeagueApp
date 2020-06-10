@@ -1,7 +1,5 @@
 package com.example.premierleagueapp.model;
 
-import androidx.annotation.Nullable;
-
 public class Player {
     private int id;
     private String name;

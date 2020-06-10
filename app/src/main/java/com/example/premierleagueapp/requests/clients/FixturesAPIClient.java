@@ -1,15 +1,12 @@
 package com.example.premierleagueapp.requests.clients;
 
 import android.app.Application;
-import android.os.Build;
 
-import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.premierleagueapp.model.Match;
 import com.example.premierleagueapp.model.Matches;
-import com.example.premierleagueapp.model.Table;
 import com.example.premierleagueapp.requests.FixturesEndpoints;
 import com.example.premierleagueapp.requests.ServiceGenerator;
 

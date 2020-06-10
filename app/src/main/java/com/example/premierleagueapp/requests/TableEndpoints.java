@@ -1,9 +1,6 @@
 package com.example.premierleagueapp.requests;
 
 import com.example.premierleagueapp.model.CompetitionStandings;
-import com.example.premierleagueapp.model.Standings;
-
-import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

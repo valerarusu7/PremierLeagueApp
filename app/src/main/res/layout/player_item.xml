@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/player_item_layout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -16,41 +15,41 @@
             android:id="@+id/player_number"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="5"
-            android:text="1"
-            android:textColor="@color/colorAccent"
             android:layout_gravity="center"
-            android:gravity="center"/>
+            android:layout_weight="5"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/colorAccent" />
 
         <TextView
             android:id="@+id/player_position"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:text="GK"
-            android:textColor="@color/colorAccent"
             android:layout_gravity="center"
-            android:gravity="center"/>
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="GK"
+            android:textColor="@color/colorAccent" />
 
         <TextView
             android:id="@+id/player_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:text="David De Gea"
-            android:textColor="@color/colorAccent"
             android:layout_gravity="center"
-            android:gravity="center"/>
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="David De Gea"
+            android:textColor="@color/colorAccent" />
 
         <TextView
             android:id="@+id/player_nationality"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:text="Spain"
-            android:textColor="@color/colorAccent"
             android:layout_gravity="center"
-            android:gravity="center"/>
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="Spain"
+            android:textColor="@color/colorAccent" />
 
 
     </LinearLayout>

@@ -1,6 +1,5 @@
 package com.example.premierleagueapp.view;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +13,6 @@ import com.bumptech.glide.Glide;
 import com.example.premierleagueapp.R;
 import com.example.premierleagueapp.adapter.RecycleViewAdapterTeamDetails;
 import com.example.premierleagueapp.viewmodel.TeamActivityViewModel;
-import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 

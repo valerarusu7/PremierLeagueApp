@@ -16,7 +16,7 @@ import com.example.premierleagueapp.model.Team;
 
 import java.util.ArrayList;
 
-public class RecycleViewAdapterTeamDetails extends RecyclerView.Adapter<RecycleViewAdapterTeamDetails.ViewHolder>{
+public class RecycleViewAdapterTeamDetails extends RecyclerView.Adapter<RecycleViewAdapterTeamDetails.ViewHolder> {
     private Team team;
     private ArrayList<Player> squad;
 
@@ -51,7 +51,7 @@ public class RecycleViewAdapterTeamDetails extends RecyclerView.Adapter<RecycleV
 
     @Override
     public int getItemCount() {
-        if(squad != null) {
+        if (squad != null) {
             return squad.size();
         }
         return 0;
@@ -63,7 +63,7 @@ public class RecycleViewAdapterTeamDetails extends RecyclerView.Adapter<RecycleV
         notifyDataSetChanged();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView number;
         TextView position;

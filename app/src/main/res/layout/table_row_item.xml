@@ -1,76 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/parent_layout_table"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="2dp">
+    android:layout_marginBottom="2dp"
+    android:gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/position"
-            android:layout_height="match_parent"
             android:layout_width="20dp"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:text="1" />
 
         <ImageView
+            android:id="@+id/emblem"
             android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:id="@+id/emblem"/>
+            android:layout_height="20dp" />
 
         <TextView
             android:id="@+id/club"
-            android:layout_height="match_parent"
             android:layout_width="190dp"
-            android:text="Wolverhampton Wanderers FC"
-            android:gravity="left"
-            android:textSize="13dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="2dp"
-            />
+            android:gravity="start"
+            android:text="Wolverhampton Wanderers FC"
+            android:textSize="13dp" />
+
         <TextView
             android:id="@+id/playedGames"
-            android:layout_height="match_parent"
             android:layout_width="30dp"
-            android:gravity="left"
+            android:layout_height="match_parent"
+            android:gravity="start"
             android:text="29" />
+
         <TextView
             android:id="@+id/wonGames"
-            android:layout_height="match_parent"
             android:layout_width="30dp"
+            android:layout_height="match_parent"
             android:gravity="left"
-            android:text="26"
-            />
+            android:text="26" />
+
         <TextView
             android:id="@+id/drawGames"
-            android:layout_height="match_parent"
             android:layout_width="30dp"
+            android:layout_height="match_parent"
             android:gravity="left"
-            android:text="3"
-            />
+            android:text="3" />
+
         <TextView
             android:id="@+id/lostGames"
-            android:layout_height="match_parent"
             android:layout_width="30dp"
+            android:layout_height="match_parent"
             android:gravity="left"
-            android:text="0"
-            />
+            android:text="0" />
+
         <TextView
             android:id="@+id/goalDifference"
-            android:layout_height="match_parent"
             android:layout_width="30dp"
+            android:layout_height="match_parent"
             android:gravity="left"
-            android:text="+77"
-            />
+            android:text="+77" />
+
         <TextView
             android:id="@+id/points"
-            android:layout_height="match_parent"
             android:layout_width="30dp"
+            android:layout_height="match_parent"
             android:gravity="left"
-            android:text="78"
-            />
+            android:text="78" />
     </LinearLayout>
 
 </RelativeLayout>

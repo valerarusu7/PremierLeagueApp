@@ -1,6 +1,5 @@
 package com.example.premierleagueapp.requests;
 
-import com.example.premierleagueapp.model.Match;
 import com.example.premierleagueapp.model.Matches;
 
 import retrofit2.Call;

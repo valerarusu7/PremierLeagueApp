@@ -1,6 +1,5 @@
 package com.example.premierleagueapp.adapter;
 
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,7 @@ import com.example.premierleagueapp.model.Table;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapterTable extends RecyclerView.Adapter<RecyclerViewAdapterTable.ViewHolder>{
+public class RecyclerViewAdapterTable extends RecyclerView.Adapter<RecyclerViewAdapterTable.ViewHolder> {
 
     private ArrayList<Table> tables;
     private OnListItemClickListener mOnListItemClickListener;
@@ -62,7 +61,11 @@ public class RecyclerViewAdapterTable extends RecyclerView.Adapter<RecyclerViewA
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public interface OnListItemClickListener {
+        void onListItemClick(int clickedItemIndex);
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView position;
         TextView club;
@@ -99,10 +102,6 @@ public class RecyclerViewAdapterTable extends RecyclerView.Adapter<RecyclerViewA
         public void onClick(View v) {
             onListItemClickListener.onListItemClick(getAdapterPosition());
         }
-    }
-
-    public interface OnListItemClickListener {
-        void onListItemClick(int clickedItemIndex);
     }
 
 }

@@ -1,15 +1,13 @@
 package com.example.premierleagueapp.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.example.premierleagueapp.R;
@@ -51,7 +49,7 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         favoriteTeamActivityViewModel = new ViewModelProvider(this).get(FavoriteTeamActivityViewModel.class);
 
         favoriteTeamActivityViewModel.getFavoriteTeam().observe(this, team -> {
-            if(team != null) {
+            if (team != null) {
                 Glide.with(imageView).load(team.getCrestUrl()).into(imageView);
             }
         });

@@ -12,8 +12,8 @@ public class FixturesByMatchday {
 
     public ArrayList<Match> getMatchesByMatchday(ArrayList<Match> apiMatches, int matchday) {
         ArrayList<Match> matchesByMatchday = new ArrayList<>();
-        for(int i = 0; i < apiMatches.size(); i++) {
-            if(matchday == apiMatches.get(i).getMatchday()) {
+        for (int i = 0; i < apiMatches.size(); i++) {
+            if (matchday == apiMatches.get(i).getMatchday()) {
                 matchesByMatchday.add(apiMatches.get(i));
             }
         }

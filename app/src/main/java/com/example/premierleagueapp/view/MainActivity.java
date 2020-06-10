@@ -1,5 +1,7 @@
 package com.example.premierleagueapp.view;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -7,8 +9,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.premierleagueapp.R;
 import com.google.android.material.tabs.TabLayout;
-
-import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
     private static final String CURRENT_POSITION_KEY = "Position";
@@ -46,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                if(tab.getPosition() == 0) {
+                if (tab.getPosition() == 0) {
                     setFragment(teamsTab);
-                } else if(tab.getPosition() == 1) {
+                } else if (tab.getPosition() == 1) {
                     setFragment(tableTab);
-                } else if(tab.getPosition() == 2) {
+                } else if (tab.getPosition() == 2) {
                     setFragment(fixturesTab);
                 }
             }

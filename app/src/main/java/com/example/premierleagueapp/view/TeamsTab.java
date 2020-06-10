@@ -12,14 +12,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.premierleagueapp.R;
 import com.example.premierleagueapp.adapter.RecyclerViewAdapterTeams;
-import com.example.premierleagueapp.model.Team;
 import com.example.premierleagueapp.model.Teams;
 import com.example.premierleagueapp.viewmodel.TeamTabViewModel;
 
@@ -66,7 +64,7 @@ public class TeamsTab extends Fragment implements RecyclerViewAdapterTeams.OnLis
 
         teamTabViewModel.getTeams().observe(getViewLifecycleOwner(), teams -> {
             adapter.setTeams(teams);
-            myTeams = new Teams(0 , null, null , null, teams);
+            myTeams = new Teams(0, null, null, null, teams);
         });
 
     }
@@ -79,7 +77,7 @@ public class TeamsTab extends Fragment implements RecyclerViewAdapterTeams.OnLis
         fav_team.getActionView();
 
         teamTabViewModel.getFavoriteTeam().observe(getViewLifecycleOwner(), team -> {
-            if(team != null) {
+            if (team != null) {
                 fav_team.setIcon(teamTabViewModel.getFavoriteTeamDrawable(team));
             }
         });
