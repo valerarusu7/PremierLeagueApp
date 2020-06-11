@@ -2,7 +2,6 @@ package com.example.premierleagueapp.view;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -86,7 +85,7 @@ public class PredictionActivity extends AppCompatActivity {
     }
 
     private void createPrediction() {
-        if(!homeScore.getText().toString().equals("") && !awayScore.getText().toString().equals("")) {
+        if (!homeScore.getText().toString().equals("") && !awayScore.getText().toString().equals("")) {
             int homeTeamScore = Integer.parseInt(homeScore.getText().toString());
             int awayTeamScore = Integer.parseInt(awayScore.getText().toString());
             predictionActivityViewModel.createPrediction(id, homeTeamScore, awayTeamScore, homeTeamName, awayTeamName);

@@ -19,8 +19,10 @@ import java.util.ArrayList;
 public class FavoriteTeamActivity extends AppCompatActivity {
     private FavoriteTeamActivityViewModel favoriteTeamActivityViewModel;
     private Spinner spinner;
+    private ArrayAdapter<Team> adapter;
     private ArrayList<Team> teamsList = new ArrayList<>();
     private ImageView imageView;
+    private Team favoriteTeam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +36,13 @@ public class FavoriteTeamActivity extends AppCompatActivity {
 
     private void initDropdown() {
         spinner = findViewById(R.id.favorite_team_dropdown);
-        final ArrayAdapter<Team> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, teamsList);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, teamsList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
         favoriteTeamActivityViewModel.getTeams().observe(this, teams -> {
             teamsList.addAll(teams);
+            spinner.setSelection(favoriteTeamActivityViewModel.getFavoriteTeamPosition(favoriteTeam));
             adapter.notifyDataSetChanged();
         });
 
@@ -50,9 +53,11 @@ public class FavoriteTeamActivity extends AppCompatActivity {
 
         favoriteTeamActivityViewModel.getFavoriteTeam().observe(this, team -> {
             if (team != null) {
+                favoriteTeam = team;
                 Glide.with(imageView).load(team.getCrestUrl()).into(imageView);
             }
         });
+
     }
 
     public void onUpdateTeam(View view) {
