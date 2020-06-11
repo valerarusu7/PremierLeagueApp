@@ -15,6 +15,7 @@ import com.example.premierleagueapp.model.Team;
 import com.example.premierleagueapp.viewmodel.FavoriteTeamActivityViewModel;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class FavoriteTeamActivity extends AppCompatActivity {
     private FavoriteTeamActivityViewModel favoriteTeamActivityViewModel;
@@ -28,10 +29,12 @@ public class FavoriteTeamActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_team);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         imageView = findViewById(R.id.imageViewFavTeam);
 
         setViewModel();
         initDropdown();
+
     }
 
     private void initDropdown() {

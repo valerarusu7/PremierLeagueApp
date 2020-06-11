@@ -14,10 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.premierleagueapp.R;
 import com.example.premierleagueapp.adapter.RecyclerViewAdapterFixtures;
 import com.example.premierleagueapp.viewmodel.FixturesTabViewModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class FixturesTab extends Fragment {
     private RecyclerViewAdapterFixtures adapter;
     private ProgressBar progressBar;
+    private FloatingActionButton go;
+    private RecyclerView recyclerView;
 
     public FixturesTab() {
 
@@ -29,6 +32,8 @@ public class FixturesTab extends Fragment {
         setHasOptionsMenu(false);
         View view = inflater.inflate(R.layout.fixtures_fragment, container, false);
         progressBar = view.findViewById(R.id.progress_fixtures);
+        go = view.findViewById(R.id.go);
+
         setRecycleView(view);
         setViewModel();
 
@@ -36,11 +41,12 @@ public class FixturesTab extends Fragment {
     }
 
     public void setRecycleView(View view) {
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view_matchday);
+        recyclerView = view.findViewById(R.id.recycler_view_matchday);
         adapter = new RecyclerViewAdapterFixtures();
         recyclerView.setAdapter(adapter);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(llm);
+        go.setOnClickListener(v -> recyclerView.scrollToPosition(300));
     }
 
     private void setViewModel() {

@@ -22,6 +22,7 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
     private ArrayList<Match> match;
 
     public RecyclerViewAdapterFixtures() {
+
     }
 
     @NonNull
@@ -52,7 +53,7 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
             });
         }
 
-        switch (match.get(position).getHomeTeam().getName()) {
+            switch (match.get(position).getHomeTeam().getName()) {
             case "Arsenal FC":
                 holder.homeImage.setImageResource(R.drawable.arsenal_fc);
                 break;

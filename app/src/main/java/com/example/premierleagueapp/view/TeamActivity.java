@@ -53,9 +53,6 @@ public class TeamActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(adapter);
-
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
     }
 
     private void setTextViews() {

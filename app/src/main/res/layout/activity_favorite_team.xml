@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/gradient"
     tools:context=".view.FavoriteTeamActivity">
 
     <LinearLayout
@@ -46,6 +47,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:onClick="onUpdateTeam"
+            android:background="@drawable/button_custom"
             android:text="@string/update_team" />
 
     </LinearLayout>

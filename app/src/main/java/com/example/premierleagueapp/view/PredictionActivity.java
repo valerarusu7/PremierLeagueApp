@@ -14,6 +14,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.premierleagueapp.R;
 import com.example.premierleagueapp.viewmodel.PredictionActivityViewModel;
 
+import java.util.Objects;
+
 public class PredictionActivity extends AppCompatActivity {
     private PredictionActivityViewModel predictionActivityViewModel;
     private TextView homeTeam;
@@ -34,6 +36,7 @@ public class PredictionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prediction);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         homeTeamName = getIntent().getStringExtra("homeTeamName");
         awayTeamName = getIntent().getStringExtra("awayTeamName");
         id = getIntent().getIntExtra("id", 0);
@@ -41,6 +44,7 @@ public class PredictionActivity extends AppCompatActivity {
         setViewModel();
         setImages();
         setButton();
+
     }
 
     private void findViews() {
