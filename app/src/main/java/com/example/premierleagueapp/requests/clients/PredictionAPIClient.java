@@ -13,9 +13,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.Objects;
-
 public class PredictionAPIClient {
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("predictions");
     private MutableLiveData<Prediction> livePrediction = new MutableLiveData<>();
@@ -38,7 +35,7 @@ public class PredictionAPIClient {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot routesSnapshot : dataSnapshot.getChildren()) {
                     Prediction prediction = routesSnapshot.getValue(Prediction.class);
-                    if(routesSnapshot.getKey().equals(String.valueOf(id))) {
+                    if (routesSnapshot.getKey().equals(String.valueOf(id))) {
                         livePrediction.setValue(prediction);
                     }
                 }

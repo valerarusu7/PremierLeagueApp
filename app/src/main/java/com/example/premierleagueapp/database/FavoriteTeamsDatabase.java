@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 import com.example.premierleagueapp.model.Team;
 
-@Database(entities = Team.class, version = 8)
+@Database(entities = Team.class, version = 10)
 public abstract class FavoriteTeamsDatabase extends RoomDatabase {
     private static FavoriteTeamsDatabase instance;
 

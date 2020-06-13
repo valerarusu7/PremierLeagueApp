@@ -33,6 +33,7 @@ public class FavoriteTeamActivityViewModel extends AndroidViewModel {
     }
 
     public int getFavoriteTeamPosition(Team team) {
+        if(team != null) {
             switch (team.getName()) {
                 case "Arsenal FC":
                     return 0;
@@ -74,7 +75,10 @@ public class FavoriteTeamActivityViewModel extends AndroidViewModel {
                     return 18;
                 case "AFC Bournemouth":
                     return 19;
+            }
+        } else {
+            return 6;
         }
-        return 0;
+        return 6;
     }
 }

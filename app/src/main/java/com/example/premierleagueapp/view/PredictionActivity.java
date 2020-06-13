@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,8 +12,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.premierleagueapp.R;
 import com.example.premierleagueapp.viewmodel.PredictionActivityViewModel;
-
-import java.util.Objects;
 
 public class PredictionActivity extends AppCompatActivity {
     private PredictionActivityViewModel predictionActivityViewModel;
@@ -30,7 +27,6 @@ public class PredictionActivity extends AppCompatActivity {
     private String awayTeamName;
     private int id;
     private Button button;
-    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +52,6 @@ public class PredictionActivity extends AppCompatActivity {
         homeGoals = findViewById(R.id.home_goals);
         awayGoals = findViewById(R.id.away_goals);
         button = findViewById(R.id.predict);
-        linearLayout = findViewById(R.id.prediction_layout);
     }
 
     @SuppressLint("SetTextI18n")

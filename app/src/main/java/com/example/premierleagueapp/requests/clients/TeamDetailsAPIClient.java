@@ -2,6 +2,7 @@ package com.example.premierleagueapp.requests.clients;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -34,7 +35,7 @@ public class TeamDetailsAPIClient {
         Call<Team> call = endpoints.getTeamById(id, Token.getTOKEN());
         call.enqueue(new Callback<Team>() {
             @Override
-            public void onResponse(Call<Team> call, Response<Team> response) {
+            public void onResponse(@NonNull Call<Team> call, @NonNull Response<Team> response) {
                 System.out.println("SUCCESSFUL LOAD OF : TEAM " + response.body());
                 Team apiTeam = response.body();
                 if (response.isSuccessful() && apiTeam != null) {
@@ -45,7 +46,7 @@ public class TeamDetailsAPIClient {
             }
 
             @Override
-            public void onFailure(Call<Team> call, Throwable t) {
+            public void onFailure(@NonNull Call<Team> call, @NonNull Throwable t) {
                 System.out.println("Failed to load the data from api : TEAMS");
 
             }

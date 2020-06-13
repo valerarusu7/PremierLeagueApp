@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/gradient"
+    android:orientation="vertical"
     tools:context=".view.FavoriteTeamActivity">
 
     <LinearLayout
@@ -27,7 +27,8 @@
                     android:layout_width="300dp"
                     android:layout_height="300dp"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/teamimage" />
+                    android:contentDescription="@string/teamimage"
+                    android:src="@drawable/manchester_united" />
             </FrameLayout>
         </FrameLayout>
 
@@ -45,9 +46,9 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
+            android:background="@drawable/button_custom"
             android:gravity="center"
             android:onClick="onUpdateTeam"
-            android:background="@drawable/button_custom"
             android:text="@string/update_team" />
 
     </LinearLayout>

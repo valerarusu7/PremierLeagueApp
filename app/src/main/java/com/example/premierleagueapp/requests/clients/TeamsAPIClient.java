@@ -2,6 +2,7 @@ package com.example.premierleagueapp.requests.clients;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -9,8 +10,6 @@ import com.example.premierleagueapp.model.Team;
 import com.example.premierleagueapp.model.Teams;
 import com.example.premierleagueapp.requests.ServiceGenerator;
 import com.example.premierleagueapp.requests.TeamsEndpoints;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -19,7 +18,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TeamsAPIClient {
-    private StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl("https://firebasestorage.googleapis.com/v0/b/androidpremierleagueapp.appspot.com/o/images%2Farsenal_fc.png?alt=media&token=d8b181f3-45eb-40f0-988f-90f5fcbd53e2");
     private MutableLiveData<ArrayList<Team>> teamsLiveData = new MutableLiveData<>();
     private MutableLiveData<ArrayList<Team>> teamsFavoriteLiveData = new MutableLiveData<>();
     private Application application;
@@ -34,7 +32,7 @@ public class TeamsAPIClient {
         Call<Teams> call = endpoints.getTeams(Token.getTOKEN());
         call.enqueue(new Callback<Teams>() {
             @Override
-            public void onResponse(Call<Teams> call, Response<Teams> response) {
+            public void onResponse(@NonNull Call<Teams> call, @NonNull Response<Teams> response) {
                 System.out.println("RESPONSE BODY FOR TEAMS: " + response.body());
                 Teams apiTeams = response.body();
                 if (response.isSuccessful() && apiTeams != null) {
@@ -44,7 +42,7 @@ public class TeamsAPIClient {
             }
 
             @Override
-            public void onFailure(Call<Teams> call, Throwable t) {
+            public void onFailure(@NonNull Call<Teams> call, @NonNull Throwable t) {
                 System.out.println("Failed to load the data from api : TEAMS");
 
             }
@@ -118,25 +116,6 @@ public class TeamsAPIClient {
             }
 
         }
-//        StorageReference astonVillaRef = storageReference.child("aston_villa.png");
-//        astonVillaRef.getBytes(1024*1024).addOnSuccessListener(bytes -> {
-//            Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-//            for(Team team : teams.getTeams()) {
-//                if(team.getName().equals("Aston Villa FC")) {
-//                    team.setCrestUrl(bitMapToString(bitmap));
-//                }
-//            }
-//        });
-//
-//        StorageReference bournemouthRef = storageReference.child("bournemonth.png");
-//        bournemouthRef.getBytes(1024*1024).addOnSuccessListener(bytes -> {
-//            Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-//            for(Team team : teams.getTeams()) {
-//                if(team.getName().equals("AFC Bournemouth")) {
-//                    team.setCrestUrl(bitMapToString(bitmap));
-//                }
-//            }
-//        });
     }
 
     public LiveData<ArrayList<Team>> getTeamsForFavoriteLiveData() {
@@ -144,7 +123,7 @@ public class TeamsAPIClient {
         Call<Teams> call = endpoints.getTeams(Token.getTOKEN());
         call.enqueue(new Callback<Teams>() {
             @Override
-            public void onResponse(Call<Teams> call, Response<Teams> response) {
+            public void onResponse(@NonNull Call<Teams> call, @NonNull Response<Teams> response) {
                 System.out.println("RESPONSE BODY FOR TEAMS: " + response.body());
                 Teams apiTeams = response.body();
                 if (response.isSuccessful() && apiTeams != null) {
@@ -154,7 +133,7 @@ public class TeamsAPIClient {
             }
 
             @Override
-            public void onFailure(Call<Teams> call, Throwable t) {
+            public void onFailure(@NonNull Call<Teams> call, @NonNull Throwable t) {
                 System.out.println("Failed to load the data from api : TEAMS");
 
             }

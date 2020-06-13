@@ -76,8 +76,8 @@
         android:layout_width="150sp"
         android:layout_height="50sp"
         android:layout_gravity="center"
-        android:gravity="center"
         android:background="@drawable/button_custom"
+        android:gravity="center"
         android:text="@string/set_prediction" />
 
     <LinearLayout

@@ -2,6 +2,7 @@ package com.example.premierleagueapp.requests.clients;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -30,7 +31,7 @@ public class TableAPIClient {
         Call<CompetitionStandings> call = endpoints.getTable(Token.getTOKEN());
         call.enqueue(new Callback<CompetitionStandings>() {
             @Override
-            public void onResponse(Call<CompetitionStandings> call, Response<CompetitionStandings> response) {
+            public void onResponse(@NonNull Call<CompetitionStandings> call, @NonNull Response<CompetitionStandings> response) {
                 CompetitionStandings apiStandings = response.body();
                 assert apiStandings != null;
                 if (response.isSuccessful()) {
@@ -40,7 +41,7 @@ public class TableAPIClient {
             }
 
             @Override
-            public void onFailure(Call<CompetitionStandings> call, Throwable t) {
+            public void onFailure(@NonNull Call<CompetitionStandings> call, @NonNull Throwable t) {
                 System.out.println("Failed to load the data from  : TABLE");
                 System.out.println(t.getMessage());
 

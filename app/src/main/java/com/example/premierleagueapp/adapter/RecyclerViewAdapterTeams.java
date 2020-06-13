@@ -17,8 +17,6 @@ import com.example.premierleagueapp.model.Team;
 import java.util.ArrayList;
 
 public class RecyclerViewAdapterTeams extends RecyclerView.Adapter<RecyclerViewAdapterTeams.ViewHolder> {
-
-    private static final String TAG = "RecyclerViewAdapterTeams";
     private ArrayList<Team> teamsNames;
     private OnListItemClickListener mOnListItemClickListener;
 
