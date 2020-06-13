@@ -46,7 +46,7 @@ public class FixturesTab extends Fragment {
         recyclerView.setAdapter(adapter);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(llm);
-        go.setOnClickListener(v -> recyclerView.scrollToPosition(300));
+        go.setOnClickListener(v -> recyclerView.smoothScrollToPosition(300));
     }
 
     private void setViewModel() {

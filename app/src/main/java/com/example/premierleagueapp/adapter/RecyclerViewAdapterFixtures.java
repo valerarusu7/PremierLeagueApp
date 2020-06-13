@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,12 +37,13 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
-        holder.homeTeam.setText(match.get(position).getHomeTeam().getName());
-        holder.scoreHome.setText(String.valueOf(match.get(position).getScore().getFullTime().getHomeTeam()));
-        holder.scoreAway.setText(String.valueOf(match.get(position).getScore().getFullTime().getAwayTeam()));
-        holder.awayTeam.setText(match.get(position).getAwayTeam().getName());
-
-        if(!match.get(position).getStatus().equals("FINISHED") || match.get(position).getReferees().get(0).getName() == null) {
+        if (match.get(position).getStatus().equals("FINISHED") || match.get(position).getScore().getWinner() != null) {
+            holder.homeTeam.setText(match.get(position).getHomeTeam().getName());
+            holder.scoreHome.setText(String.valueOf(match.get(position).getScore().getFullTime().getHomeTeam()));
+            holder.scoreAway.setText(String.valueOf(match.get(position).getScore().getFullTime().getAwayTeam()));
+            holder.awayTeam.setText(match.get(position).getAwayTeam().getName());
+            holder.parentLayout.setOnClickListener(v -> Toast.makeText(v.getContext(), "The score was " + holder.scoreHome.getText().toString() + " - " + holder.scoreAway.getText().toString(), Toast.LENGTH_SHORT).show());
+        } else {
             holder.scoreHome.setText("?");
             holder.scoreAway.setText("?");
             holder.parentLayout.setOnClickListener(v -> {
@@ -53,7 +55,7 @@ public class RecyclerViewAdapterFixtures extends RecyclerView.Adapter<RecyclerVi
             });
         }
 
-            switch (match.get(position).getHomeTeam().getName()) {
+        switch (match.get(position).getHomeTeam().getName()) {
             case "Arsenal FC":
                 holder.homeImage.setImageResource(R.drawable.arsenal_fc);
                 break;

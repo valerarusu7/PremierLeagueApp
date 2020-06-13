@@ -36,7 +36,6 @@ public class PredictionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prediction);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         homeTeamName = getIntent().getStringExtra("homeTeamName");
         awayTeamName = getIntent().getStringExtra("awayTeamName");
         id = getIntent().getIntExtra("id", 0);

@@ -57,6 +57,7 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         favoriteTeamActivityViewModel.getFavoriteTeam().observe(this, team -> {
             if (team != null) {
                 favoriteTeam = team;
+                spinner.setSelection(favoriteTeamActivityViewModel.getFavoriteTeamPosition(favoriteTeam));
                 Glide.with(imageView).load(team.getCrestUrl()).into(imageView);
             }
         });
